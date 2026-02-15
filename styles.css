@@ -381,10 +381,19 @@ h3 {
   padding: 0.82rem 0.95rem;
 }
 
-.honor-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.58rem;
+.honor-item {
+  position: relative;
+  padding-right: 6.2rem;
+}
+
+.honor-chip {
+  position: absolute;
+  top: 0.82rem;
+  right: 0.95rem;
+}
+
+.honor-title {
+  margin-right: 0.5rem;
 }
 
 .stack-title,

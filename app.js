@@ -356,11 +356,9 @@ function renderHonors(items) {
   if (!rows.length) return appendFallback(root, "No honors entries yet.");
 
   rows.forEach((item) => {
-    const li = make("li", "list-item");
-    const row = make("div", "honor-row");
-    row.appendChild(make("span", "date-chip", safeText(item.year, "Date TBD")));
-    row.appendChild(make("span", "stack-title", safeText(item.title)));
-    li.appendChild(row);
+    const li = make("li", "list-item honor-item");
+    li.appendChild(make("span", "date-chip honor-chip", safeText(item.year, "Date TBD")));
+    li.appendChild(make("span", "stack-title honor-title", safeText(item.title)));
     li.appendChild(make("span", "stack-sub", safeText(item.organization, "")));
     li.appendChild(make("span", "stack-note", safeText(item.details, "")));
     root.appendChild(li);
