@@ -16,7 +16,7 @@
     "links": {
       "cv": "https://drive.google.com/file/d/1qP0y-kgTGK4p5TDXQrk1iT7EKN2oqcOM/view?usp=drive_link",
       "orcid": "https://orcid.org/0000-0003-2398-4922",
-      "linkedin": "www.linkedin.com/in/hyuckjin-jang",
+      "linkedin": "https://www.linkedin.com/in/hyuckjin-jang",
       "scholar": "https://scholar.google.com/citations?user=4AHYKL4AAAAJ&hl=ko"
     }
   },
@@ -59,7 +59,8 @@
       "authors": "Jang, H., Kim, B., Baek, K. D., Ahn, C., Lee, J.",
       "venue": "ACM CHI '26",
       "details": "Conditionally accepted.",
-      "link": ""
+      "link": "",
+      "image": ""
     },
     {
       "id": "p-2",
@@ -68,7 +69,8 @@
       "authors": "Jang, H., and Lee, J.",
       "venue": "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
       "details": "pp.1-18",
-      "link": "https://doi.org/10.1145/3706598.3714264"
+      "link": "https://doi.org/10.1145/3706598.3714264",
+      "image": ""
     },
     {
       "id": "p-3",
@@ -77,7 +79,8 @@
       "authors": "Jang, H., and Lee, J.",
       "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 5",
       "details": "pp.2342-2352",
-      "link": "https://doi.org/10.1109/TVCG.2025.3549532"
+      "link": "https://doi.org/10.1109/TVCG.2025.3549532",
+      "image": ""
     },
     {
       "id": "p-4",
@@ -86,7 +89,8 @@
       "authors": "Lee, J., Jang, H., and Lee, J.",
       "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 11",
       "details": "pp.9699-9708. Honorable Mention Award in ISMAR 2025.",
-      "link": "https://doi.org/10.1109/TVCG.2025.3616803"
+      "link": "https://doi.org/10.1109/TVCG.2025.3616803",
+      "image": ""
     },
     {
       "id": "p-5",
@@ -95,7 +99,8 @@
       "authors": "Kim, T., Shin, J., Kim, H., Jang, H., Kang, J., Lee, S.",
       "venue": "ACM Transactions on Graphics, vol. 45(2), no.17",
       "details": "pp.1-15",
-      "link": "https://doi.org/10.1145/3777900"
+      "link": "https://doi.org/10.1145/3777900",
+      "image": ""
     }
   ],
   "conferenceProceedings": [
@@ -107,7 +112,8 @@
       "authors": "Jang, H., and Lee, J.",
       "venue": "Korean Society for Cognitive and Biological Psychology (KCPB), Seoul, South Korea",
       "notes": "Outstanding Presentation Award.",
-      "link": ""
+      "link": "",
+      "image": ""
     },
     {
       "id": "c-2",
@@ -117,7 +123,8 @@
       "authors": "Jang, H., Kim, B., Baek, K., Ahn, C., and Lee, J.",
       "venue": "KCPB, Seoul, South Korea",
       "notes": "",
-      "link": ""
+      "link": "",
+      "image": ""
     },
     {
       "id": "c-3",
@@ -127,7 +134,8 @@
       "authors": "Jang, H., Kim, B., Baek, K. D., Ahn, C., Lee, J.",
       "venue": "XR-PHY Workshop at CHI 2025, Yokohama, Japan",
       "notes": "",
-      "link": "https://sites.google.com/view/xr-phy-2025/accepted-papers?authuser=0"
+      "link": "https://sites.google.com/view/xr-phy-2025/accepted-papers?authuser=0",
+      "image": ""
     },
     {
       "id": "c-4",
@@ -137,7 +145,8 @@
       "authors": "Jang, H., and Lee, J.",
       "venue": "KCPB, Gwangju, South Korea",
       "notes": "",
-      "link": ""
+      "link": "",
+      "image": ""
     },
     {
       "id": "c-5",
@@ -147,7 +156,8 @@
       "authors": "Jang, H., and Lee, J.",
       "venue": "2023 IEEE ISMAR-Adjunct",
       "notes": "pp.673-674",
-      "link": "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00144"
+      "link": "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00144",
+      "image": ""
     },
     {
       "id": "c-6",
@@ -157,7 +167,8 @@
       "authors": "Jang, H., and Lee, J.",
       "venue": "KCPB, Seoul, South Korea",
       "notes": "",
-      "link": ""
+      "link": "",
+      "image": ""
     },
     {
       "id": "c-7",
@@ -167,7 +178,8 @@
       "authors": "Jang, H., Kim, T., Oh, S., Lee, J., Lee, S., Yoon, S.H.",
       "venue": "ACM SIGGRAPH 2022 Emerging Technologies",
       "notes": "pp.1-2",
-      "link": "https://doi.org/10.1145/3532721.3535568"
+      "link": "https://doi.org/10.1145/3532721.3535568",
+      "image": ""
     },
     {
       "id": "c-8",
@@ -177,7 +189,8 @@
       "authors": "Kim, S., Jang, H., Oh, K.T., Oh, S., Kim, D., Woo, W., Lee, J., Ahn, J., Yoon, S.H.",
       "venue": "2022 IEEE ISMAR-Adjunct",
       "notes": "pp.654-656",
-      "link": "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00135"
+      "link": "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00135",
+      "image": ""
     },
     {
       "id": "c-9",
@@ -187,7 +200,8 @@
       "authors": "Lee, G. B., Jang, H., Jeong, H., Woo, W.",
       "venue": "2021 IEEE ISMAR-Adjunct",
       "notes": "pp.429-434",
-      "link": "https://doi.org/10.1109/ISMAR-Adjunct54149.2021.00097"
+      "link": "https://doi.org/10.1109/ISMAR-Adjunct54149.2021.00097",
+      "image": ""
     }
   ],
   "honors": [

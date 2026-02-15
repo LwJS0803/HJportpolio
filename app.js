@@ -76,6 +76,15 @@ function safeText(value, fallback = "Not provided") {
   return text || fallback;
 }
 
+function normalizeLink(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  if (raw.startsWith("mailto:")) return raw;
+  if (/^https?:\/\//i.test(raw)) return raw;
+  if (/^www\./i.test(raw)) return `https://${raw}`;
+  return raw;
+}
+
 function parseYear(value) {
   const matched = String(value || "").match(/\d{4}/);
   return matched ? Number(matched[0]) : 0;
@@ -134,6 +143,18 @@ function clearAndGet(id) {
 
 function appendFallback(container, text) {
   container.appendChild(make("p", "fallback", text));
+}
+
+function createCardImage(image, altText) {
+  const raw = String(image || "").trim();
+  if (!raw) return null;
+  const wrapper = make("div", "card-media");
+  const img = document.createElement("img");
+  img.src = raw;
+  img.alt = altText;
+  img.loading = "lazy";
+  wrapper.appendChild(img);
+  return wrapper;
 }
 
 function bindMenu() {
@@ -203,7 +224,7 @@ function renderProfile(profile) {
   ];
 
   defs.forEach(([label, href]) => {
-    const link = String(href || "").trim();
+    const link = normalizeLink(href);
     const node = document.createElement(link ? "a" : "span");
     node.className = link ? "social-link" : "social-link disabled";
     node.textContent = label;
@@ -256,6 +277,9 @@ function renderPublications(items) {
 
   rows.forEach((item) => {
     const card = make("article", "card-item");
+    const media = createCardImage(item.image, item.title || "publication image");
+    if (media) card.appendChild(media);
+
     const top = make("div", "card-top");
     top.appendChild(make("h3", "", safeText(item.title)));
     top.appendChild(make("span", "date-chip", safeText(item.year, "Date TBD")));
@@ -273,7 +297,7 @@ function renderPublications(items) {
       }
     }
 
-    const link = String(item.link || "").trim();
+    const link = normalizeLink(item.link);
     if (link) {
       const a = make("a", "card-link", "View");
       a.href = link;
@@ -293,6 +317,9 @@ function renderConferences(items) {
 
   rows.forEach((item) => {
     const card = make("article", "card-item");
+    const media = createCardImage(item.image, item.title || "conference image");
+    if (media) card.appendChild(media);
+
     const top = make("div", "card-top");
     top.appendChild(make("h3", "", safeText(item.title)));
     top.appendChild(make("span", "date-chip", formatConferenceDate(item.month, item.year)));
@@ -310,7 +337,7 @@ function renderConferences(items) {
       }
     }
 
-    const link = String(item.link || "").trim();
+    const link = normalizeLink(item.link);
     if (link) {
       const a = make("a", "card-link", "View");
       a.href = link;
@@ -330,7 +357,10 @@ function renderHonors(items) {
 
   rows.forEach((item) => {
     const li = make("li", "list-item");
-    li.appendChild(make("span", "stack-title", `${safeText(item.year)} - ${safeText(item.title)}`));
+    const row = make("div", "honor-row");
+    row.appendChild(make("span", "date-chip", safeText(item.year, "Date TBD")));
+    row.appendChild(make("span", "stack-title", safeText(item.title)));
+    li.appendChild(row);
     li.appendChild(make("span", "stack-sub", safeText(item.organization, "")));
     li.appendChild(make("span", "stack-note", safeText(item.details, "")));
     root.appendChild(li);
