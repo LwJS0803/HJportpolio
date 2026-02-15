@@ -356,9 +356,15 @@ function renderHonors(items) {
   if (!rows.length) return appendFallback(root, "No honors entries yet.");
 
   rows.forEach((item) => {
+    const rawYear = String(item.year || "").trim();
+    const rawTitle = String(item.title || "").trim();
+    const split = rawTitle.match(/^(\d{4})\s*[-–—:]\s*(.+)$/);
+    const viewYear = rawYear || (split ? split[1] : "");
+    const viewTitle = split ? split[2] : rawTitle;
+
     const li = make("li", "list-item honor-item");
-    li.appendChild(make("span", "date-chip honor-chip", safeText(item.year, "Date TBD")));
-    li.appendChild(make("span", "stack-title honor-title", safeText(item.title)));
+    li.appendChild(make("span", "date-chip honor-chip", safeText(viewYear, "Date TBD")));
+    li.appendChild(make("span", "stack-title honor-title", safeText(viewTitle)));
     li.appendChild(make("span", "stack-sub", safeText(item.organization, "")));
     li.appendChild(make("span", "stack-note", safeText(item.details, "")));
     root.appendChild(li);

@@ -397,11 +397,11 @@ h3 {
   white-space: nowrap;
 }
 
-#honors-list .honor-item {
+#honor-list .honor-item {
   position: relative !important;
 }
 
-#honors-list .honor-chip {
+#honor-list .honor-chip {
   position: absolute !important;
   top: 0.8rem !important;
   right: 0.95rem !important;
