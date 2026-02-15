@@ -382,14 +382,29 @@ h3 {
 }
 
 .honor-item {
-  position: relative;
-  padding-right: 6.2rem;
+  position: relative !important;
+  display: block !important;
+  padding-top: 1rem;
+  padding-right: 6.8rem !important;
+  min-height: 4.1rem;
 }
 
 .honor-chip {
-  position: absolute;
-  top: 0.82rem;
-  right: 0.95rem;
+  position: absolute !important;
+  top: 0.8rem !important;
+  right: 0.95rem !important;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+#honors-list .honor-item {
+  position: relative !important;
+}
+
+#honors-list .honor-chip {
+  position: absolute !important;
+  top: 0.8rem !important;
+  right: 0.95rem !important;
 }
 
 .honor-title {
