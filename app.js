@@ -1,6 +1,7 @@
 const STORAGE_KEY = "hyuckjin-portfolio-data";
 const DATA_URL = "data/portfolio.json";
 const REQUIRED_ARRAY_KEYS = ["news", "education", "publications", "conferenceProceedings", "honors"];
+let menuBound = false;
 
 function getFallbackData() {
   return {
@@ -136,10 +137,12 @@ function appendFallback(container, text) {
 }
 
 function bindMenu() {
+  if (menuBound) return;
   const toggle = document.getElementById("menuToggle");
   const nav = document.getElementById("siteNav");
 
   if (!toggle || !nav) return;
+  menuBound = true;
 
   const closeMenu = () => {
     nav.classList.remove("is-open");
@@ -253,12 +256,22 @@ function renderPublications(items) {
 
   rows.forEach((item) => {
     const card = make("article", "card-item");
-    card.appendChild(make("h3", "", safeText(item.title)));
-    card.appendChild(make("p", "card-meta", safeText(item.authors, "")));
-    card.appendChild(make("p", "card-meta", safeText(item.venue, "")));
-    card.appendChild(make("p", "card-meta date-line", safeText(item.year, "Date TBD")));
+    const top = make("div", "card-top");
+    top.appendChild(make("h3", "", safeText(item.title)));
+    top.appendChild(make("span", "date-chip", safeText(item.year, "Date TBD")));
+    card.appendChild(top);
 
-    if (item.details) card.appendChild(make("p", "card-meta", safeText(item.details, "")));
+    const citationRaw = String(item.citation || "").trim();
+    if (citationRaw) {
+      card.appendChild(make("p", "citation", citationRaw));
+    } else {
+      const fallbackCitation = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(item.details, "")]
+        .filter(Boolean)
+        .join("\n");
+      if (fallbackCitation) {
+        card.appendChild(make("p", "citation", fallbackCitation));
+      }
+    }
 
     const link = String(item.link || "").trim();
     if (link) {
@@ -280,11 +293,22 @@ function renderConferences(items) {
 
   rows.forEach((item) => {
     const card = make("article", "card-item");
-    card.appendChild(make("h3", "", safeText(item.title)));
-    card.appendChild(make("p", "card-meta date-line", formatConferenceDate(item.month, item.year)));
-    card.appendChild(make("p", "card-meta", safeText(item.authors, "")));
-    card.appendChild(make("p", "card-meta", safeText(item.venue, "")));
-    if (item.notes) card.appendChild(make("p", "card-meta", safeText(item.notes, "")));
+    const top = make("div", "card-top");
+    top.appendChild(make("h3", "", safeText(item.title)));
+    top.appendChild(make("span", "date-chip", formatConferenceDate(item.month, item.year)));
+    card.appendChild(top);
+
+    const citationRaw = String(item.citation || "").trim();
+    if (citationRaw) {
+      card.appendChild(make("p", "citation", citationRaw));
+    } else {
+      const fallbackCitation = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(item.notes, "")]
+        .filter(Boolean)
+        .join("\n");
+      if (fallbackCitation) {
+        card.appendChild(make("p", "citation", fallbackCitation));
+      }
+    }
 
     const link = String(item.link || "").trim();
     if (link) {

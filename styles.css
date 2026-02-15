@@ -59,10 +59,11 @@ h3 {
 }
 
 .nav-wrap {
+  position: relative;
   min-height: 62px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -78,14 +79,17 @@ h3 {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 0.38rem;
-  margin-left: auto;
+  justify-content: center;
+  gap: 0.42rem;
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
 }
 
 .site-nav a {
   text-decoration: none;
   color: #e7f0ff;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
   min-height: 44px;
   display: inline-flex;
@@ -302,18 +306,49 @@ h3 {
 }
 
 .card-item {
-  padding: 0.94rem 1rem;
+  padding: 1.04rem 1.1rem;
+  overflow-wrap: anywhere;
 }
 
 .card-meta {
-  margin: 0.3rem 0;
+  margin: 0.36rem 0;
   color: var(--muted);
   font-size: 0.94rem;
+  line-height: 1.58;
 }
 
 .date-line {
   color: var(--accent);
   font-weight: 600;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.date-chip {
+  flex-shrink: 0;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0 0.62rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0f4ace;
+  border: 1px solid #bdd3ff;
+  background: #edf3ff;
+}
+
+.citation {
+  margin: 0.5rem 0 0.28rem;
+  color: #2c3556;
+  line-height: 1.7;
+  white-space: pre-line;
+  word-break: break-word;
 }
 
 .card-link {
@@ -549,11 +584,14 @@ textarea:focus-visible,
 }
 
 @media (max-width: 860px) {
+  .nav-wrap {
+    grid-template-columns: 1fr auto;
+  }
+
   .menu-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
   }
 
   .site-nav {
@@ -561,7 +599,7 @@ textarea:focus-visible,
     position: absolute;
     left: 0.6rem;
     right: 0.6rem;
-    top: 62px;
+    top: calc(100% + 0.4rem);
     margin-left: 0;
     padding: 0.45rem;
     border-radius: 0.85rem;

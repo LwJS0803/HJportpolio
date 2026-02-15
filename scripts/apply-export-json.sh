@@ -34,12 +34,6 @@ const requiredArrays = [
   "publications",
   "conferenceProceedings",
   "honors",
-  "grants",
-  "projects",
-  "experiences",
-  "services",
-  "mentorships",
-  "skills",
 ];
 
 if (!parsed || typeof parsed !== "object") {

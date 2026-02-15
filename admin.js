@@ -22,6 +22,7 @@ const sectionConfig = {
   publications: [
     { key: "year", label: "Year", required: true, type: "text", placeholder: "2026" },
     { key: "title", label: "Title", required: true, type: "text", placeholder: "Paper title" },
+    { key: "citation", label: "Citation (free layout)", required: false, type: "textarea", placeholder: "Optional custom citation text. Line breaks are supported." },
     { key: "authors", label: "Authors", required: true, type: "text", placeholder: "Author list" },
     { key: "venue", label: "Venue", required: true, type: "text", placeholder: "Journal / conference" },
     { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Pages / notes" },
@@ -31,6 +32,7 @@ const sectionConfig = {
     { key: "year", label: "Year", required: false, type: "text", placeholder: "2026" },
     { key: "month", label: "Month", required: false, type: "text", placeholder: "Jan" },
     { key: "title", label: "Title", required: true, type: "text", placeholder: "Talk title" },
+    { key: "citation", label: "Citation (free layout)", required: false, type: "textarea", placeholder: "Optional custom citation text. Line breaks are supported." },
     { key: "authors", label: "Authors", required: true, type: "text", placeholder: "Author list" },
     { key: "venue", label: "Venue", required: true, type: "text", placeholder: "Conference name" },
     { key: "notes", label: "Notes", required: false, type: "textarea", placeholder: "Award / remarks" },
@@ -47,8 +49,8 @@ const sectionConfig = {
 const sectionDefault = {
   news: { id: "", date: "", title: "", body: "" },
   education: { id: "", period: "", degree: "", institution: "", notes: "" },
-  publications: { id: "", year: "", title: "", authors: "", venue: "", details: "", link: "" },
-  conferenceProceedings: { id: "", year: "", month: "", title: "", authors: "", venue: "", notes: "", link: "" },
+  publications: { id: "", year: "", title: "", citation: "", authors: "", venue: "", details: "", link: "" },
+  conferenceProceedings: { id: "", year: "", month: "", title: "", citation: "", authors: "", venue: "", notes: "", link: "" },
   honors: { id: "", year: "", title: "", organization: "", details: "" }
 };
 
