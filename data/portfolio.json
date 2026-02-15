@@ -1,0 +1,495 @@
+{
+  "profile": {
+    "name": "Hyuckjin Jang",
+    "affiliation": "Graduate School of Culture Technology, KAIST",
+    "intro": "Human-Computer Interaction researcher focused on Extended Reality, sensory substitution, assistive technology, media psychology, and cognitive neuroscience.",
+    "areaOfInterest": [
+      "Human-Computer Interaction",
+      "Extended Reality",
+      "Sensory Substitution",
+      "Assistive Technology",
+      "Media Psychology",
+      "Cognitive Neuroscience"
+    ],
+    "email": "hyuckjin.jang@kaist.ac.kr",
+    "photo": "assets/profile.png",
+    "links": {
+      "cv": "CV_Hyuckjin%20Jang%20(11).pdf",
+      "orcid": "",
+      "linkedin": "",
+      "scholar": "",
+      "homepage": "https://bit.ly/4ktJ2ah"
+    }
+  },
+  "news": [
+    {
+      "id": "n-1",
+      "date": "2026-02-15",
+      "title": "Portfolio updated with full CV sections",
+      "body": "Grants, projects, experience, academic service, mentoring, and skills are now included for first-pass visibility."
+    }
+  ],
+  "education": [
+    {
+      "id": "e-1",
+      "period": "Mar.2023 -",
+      "degree": "Ph.D. Candidate",
+      "institution": "Graduate School of Culture Technology, KAIST",
+      "notes": "Interdisciplinary major in Graduate School of Metaverse, KAIST. Visual Cognition Lab (Advisor: Jeongmi Lee), Daejeon, Korea."
+    },
+    {
+      "id": "e-2",
+      "period": "Mar.2021 - Feb.2023",
+      "degree": "M.S.",
+      "institution": "Graduate School of Culture Technology, KAIST",
+      "notes": "Visual Cognition Lab (Advisor: Jeongmi Lee), Daejeon, Korea."
+    },
+    {
+      "id": "e-3",
+      "period": "Mar.2016 - Feb.2021",
+      "degree": "B.A.",
+      "institution": "Sogang University",
+      "notes": "Communication and Media Cognitive Science, Summa Cum Laude, Seoul, Korea."
+    }
+  ],
+  "publications": [
+    {
+      "id": "p-1",
+      "year": "2026",
+      "title": "Feel the Sync: The Effects of Shared Haptic Feedback on Short-Cycle Repetitive Turn-Taking Collaboration of Remote Users in Virtual Reality",
+      "authors": "Jang, H., Kim, B., Baek, K. D., Ahn, C., Lee, J.",
+      "venue": "ACM CHI'26",
+      "details": "Conditionally Accepted.",
+      "link": ""
+    },
+    {
+      "id": "p-2",
+      "year": "2025",
+      "title": "Birds of a Rhythm: The Effects of Haptic Pattern Similarity on People's Social Perceptions in Virtual Reality",
+      "authors": "Jang, H., & Lee, J.",
+      "venue": "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
+      "details": "pp.1-18.",
+      "link": "https://doi.org/10.1145/3706598.3714264"
+    },
+    {
+      "id": "p-3",
+      "year": "2025",
+      "title": "Effective VR Intervention to Reduce Implicit Bias towards People with Physical Disabilities: The Interplay between Experience Design and Individual Characteristics",
+      "authors": "Jang, H., & Lee, J.",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 5",
+      "details": "pp.2342-2352.",
+      "link": "https://doi.org/10.1109/TVCG.2025.3549532"
+    },
+    {
+      "id": "p-4",
+      "year": "2025",
+      "title": "How Do We Read Texts in VR?: The Effects of Text Segment Quantity and Social Distraction on Text Readability in Virtual Museum Contexts",
+      "authors": "Lee, J., Jang, H., & Lee, J.",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 11",
+      "details": "pp.9699-9708. Honorable Mention Award in ISMAR 2025.",
+      "link": "https://doi.org/10.1109/TVCG.2025.3616803"
+    },
+    {
+      "id": "p-5",
+      "year": "2025",
+      "title": "Voronoi Rooms: Dynamic Visibility Modulation of Overlapping Spaces for Telepresence",
+      "authors": "Kim, T., Shin, J., Kim, H., Jang, H., Kang, J., Lee, S.",
+      "venue": "ACM Transactions on Graphics, vol. 45(2), no.17",
+      "details": "pp.1-15.",
+      "link": "https://doi.org/10.1145/3777900"
+    }
+  ],
+  "conferenceProceedings": [
+    {
+      "id": "c-1",
+      "year": "2026",
+      "month": "Jan",
+      "title": "Exploring the Social Potential of Haptic Cues for Modulating Users' Group Perception in Virtual Crowd Contexts",
+      "authors": "Jang, H., & Lee, J.",
+      "venue": "Korean Society for Cognitive & Biological Psychology (KCPB), Seoul, South Korea",
+      "notes": "Outstanding Presentation Award.",
+      "link": ""
+    },
+    {
+      "id": "c-2",
+      "year": "2026",
+      "month": "Jan",
+      "title": "Modern Times: Shared Haptic Feedback for Enhancing Collaborative Experience and Inducing Interpersonal Synchrony in Short-Cycle Repetitive Remote Collaboration",
+      "authors": "Jang, H., Kim, B., Baek, K., Ahn, C., & Lee, J.",
+      "venue": "KCPB, Seoul, South Korea",
+      "notes": "",
+      "link": ""
+    },
+    {
+      "id": "c-3",
+      "year": "2025",
+      "month": "Apr",
+      "title": "The Preliminary Exploration of Sharing Haptic Feedback for Connecting Remote Users in XR",
+      "authors": "Jang, H., Kim, B., Baek, K. D., Ahn, C., Lee, J.",
+      "venue": "XR-PHY Workshop at CHI 2025, Yokohama, Japan",
+      "notes": "",
+      "link": "https://sites.google.com/view/xr-phy-2025/accepted-papers?authuser=0"
+    },
+    {
+      "id": "c-4",
+      "year": "2025",
+      "month": "Feb",
+      "title": "Haptic Pattern Similarity Modulates People's Social Perceptions and Interpersonal Distance in Virtual Reality",
+      "authors": "Jang, H., & Lee, J.",
+      "venue": "KCPB, Gwangju, South Korea",
+      "notes": "",
+      "link": ""
+    },
+    {
+      "id": "c-5",
+      "year": "2023",
+      "month": "Oct",
+      "title": "Exploring Factors of VR-based Wheelchair Simulation for Reducing Implicit Bias",
+      "authors": "Jang, H., & Lee, J.",
+      "venue": "2023 IEEE ISMAR-Adjunct",
+      "notes": "pp.673-674, IEEE.",
+      "link": "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00144"
+    },
+    {
+      "id": "c-6",
+      "year": "2023",
+      "month": "Feb",
+      "title": "Modulation of Implicit Bias toward People with Physical Disabilities by Wheelchair Experience in Virtual Reality",
+      "authors": "Jang, H., & Lee, J.",
+      "venue": "KCPB, Seoul, South Korea",
+      "notes": "",
+      "link": ""
+    },
+    {
+      "id": "c-7",
+      "year": "2022",
+      "month": "Aug",
+      "title": "Sense of Embodiment Inducement for People with Reduced Lower-body Mobility and Sensations with Partial-Visuomotor Stimulation",
+      "authors": "Jang, H.*, Kim, T.*, Oh, S., Lee, J., Lee, S., Yoon, S.H.",
+      "venue": "ACM SIGGRAPH 2022 Emerging Technologies",
+      "notes": "pp.1-2.",
+      "link": "https://doi.org/10.1145/3532721.3535568"
+    },
+    {
+      "id": "c-8",
+      "year": "2022",
+      "month": "Oct",
+      "title": "Bring Store in My Room: AR Store Authoring System for Spatial Experience in Mobile Shopping",
+      "authors": "Kim, S.*, Jang, H.*, Oh, K.T.*, Oh, S., Kim, D., Woo, W., Lee, J., Ahn, J., Yoon, S.H.",
+      "venue": "2022 IEEE ISMAR-Adjunct",
+      "notes": "pp.654-656.",
+      "link": "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00135"
+    },
+    {
+      "id": "c-9",
+      "year": "2021",
+      "month": "Oct",
+      "title": "Designing a Multi-Modal Communication System for the Deaf and Hard-of-Hearing Users",
+      "authors": "Lee, G. B., Jang, H., Jeong, H., Woo, W.",
+      "venue": "2021 IEEE ISMAR-Adjunct",
+      "notes": "pp.429-434.",
+      "link": "https://doi.org/10.1109/ISMAR-Adjunct54149.2021.00097"
+    }
+  ],
+  "honors": [
+    {
+      "id": "h-1",
+      "year": "2025",
+      "title": "Graduate Student Outstanding Research Prize",
+      "organization": "College of Liberal Arts and Convergence Science, KAIST",
+      "details": ""
+    },
+    {
+      "id": "h-2",
+      "year": "2025",
+      "title": "Best Research Award",
+      "organization": "KEA XR Professional Workforce Division Research Achievement Exchange Workshop",
+      "details": ""
+    },
+    {
+      "id": "h-3",
+      "year": "2023",
+      "title": "Excellence Award",
+      "organization": "KIRD National R&D Real Challenge Program",
+      "details": ""
+    },
+    {
+      "id": "h-4",
+      "year": "2022",
+      "title": "Edu 4.0Q TA Excellence Award",
+      "organization": "KAIST 2022 Spring Semester",
+      "details": ""
+    },
+    {
+      "id": "h-5",
+      "year": "2018-2020",
+      "title": "The Next Century Humanities Scholarship",
+      "organization": "KOSAF",
+      "details": ""
+    },
+    {
+      "id": "h-6",
+      "year": "2019",
+      "title": "Excellence Award in 60th Anniversary Slogan Contest",
+      "organization": "Sogang University",
+      "details": ""
+    },
+    {
+      "id": "h-7",
+      "year": "2017",
+      "title": "Elective Course Proposal Award",
+      "organization": "Sogang University",
+      "details": "Course Name: Introduction of Media Therapy"
+    },
+    {
+      "id": "h-8",
+      "year": "2017",
+      "title": "Semester High Honors",
+      "organization": "Sogang University",
+      "details": ""
+    },
+    {
+      "id": "h-9",
+      "year": "2016-2017",
+      "title": "Academic Excellence Scholarship",
+      "organization": "Sogang University",
+      "details": ""
+    }
+  ],
+  "grants": [
+    {
+      "id": "g-1",
+      "period": "2025-2026",
+      "title": "Ph.D. Student Research Encouragement Grant",
+      "organization": "NRF Grant (RS-2025-25402731)",
+      "details": "Validation of the effectiveness of haptic-based social cues for reducing perceived differences between polarized groups in extended reality."
+    },
+    {
+      "id": "g-2",
+      "period": "2023",
+      "title": "National R&D Real Challenge Program",
+      "organization": "KIRD Grant (N01230944)",
+      "details": "Development of a personalized XR career experience system based on physiological data for resolving information asymmetry among information-vulnerable youth."
+    },
+    {
+      "id": "g-3",
+      "period": "2022",
+      "title": "High-Risk High-Return Project",
+      "organization": "KAIST Grant (N11220132)",
+      "details": "The effect of avatar embodiment and experience context in virtual reality on implicit physical-disability bias."
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj-1",
+      "period": "2024-",
+      "title": "STEAM R&D Project",
+      "organization": "VCL, Daejeon",
+      "role": "Leading researcher in cognition",
+      "details": "AR-AI-Cognition-Architectural research for transdimensional interaction."
+    },
+    {
+      "id": "prj-2",
+      "period": "2023-2025",
+      "title": "Avatar Team",
+      "organization": "VCL, Daejeon",
+      "role": "Leading researcher",
+      "details": "TBD"
+    },
+    {
+      "id": "prj-3",
+      "period": "2022-2024",
+      "title": "SoA Team",
+      "organization": "VCL, Daejeon",
+      "role": "Co-researcher",
+      "details": "Evaluated and developed eye-gaze-based joint attention cue in collaborative VR task with ERP analysis."
+    },
+    {
+      "id": "prj-4",
+      "period": "2023",
+      "title": "DCT, KIRD Real Challenge",
+      "organization": "Daejeon",
+      "role": "Team Leader",
+      "details": "Built research plan for VR-based career exploration platform for information-vulnerable youth."
+    },
+    {
+      "id": "prj-5",
+      "period": "2021",
+      "title": "Project Mod",
+      "organization": "Nexon Creators Invitational 2021, Seoul",
+      "role": "Creator",
+      "details": "Designed a custom 2D game using the MOD engine."
+    },
+    {
+      "id": "prj-6",
+      "period": "2021",
+      "title": "GAZA Next Level",
+      "organization": "2021 Metaverse Developer Contest, Seoul",
+      "role": "Project leader, developer",
+      "details": "Planned and developed a mobile-based indoor AR shopping system."
+    },
+    {
+      "id": "prj-7",
+      "period": "2019-2020",
+      "title": "SION Healthcare Startup",
+      "organization": "Seoul",
+      "role": "Project manager, co-founder",
+      "details": "Planned and organized development of a play kit for children's ocular movement exercise."
+    }
+  ],
+  "experiences": [
+    {
+      "id": "exp-1",
+      "period": "2025 Spring",
+      "role": "TA",
+      "organization": "CTP311 Human Visual Cognition (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-2",
+      "period": "2024 Fall",
+      "role": "TA",
+      "organization": "HSS512 Experimental Methods for Humanities and Social Sciences (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-3",
+      "period": "2024 Oct-Nov",
+      "role": "Instructor",
+      "organization": "XR and Cognition (Hanwha Galleria Dept. / Gyanggyo, Timeworld)",
+      "details": ""
+    },
+    {
+      "id": "exp-4",
+      "period": "2024 Spring",
+      "role": "TA",
+      "organization": "CTP445 Augmented Reality (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-5",
+      "period": "2024 Spring",
+      "role": "TA",
+      "organization": "HSS333 Introduction to Social Psychology (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-6",
+      "period": "2023.11",
+      "role": "Mentor",
+      "organization": "Dangjin Art&Science Academy (Dangjin Cultural Foundation / KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-7",
+      "period": "2023.04-2023.07",
+      "role": "Senior Mentor & Team Leader",
+      "organization": "Global Entrepreneur Summer School (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-8",
+      "period": "2023 Spring",
+      "role": "TA",
+      "organization": "GCT741 Topics in HCI: Interaction Sensing Principle & Application (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-9",
+      "period": "2022.10",
+      "role": "Mentor",
+      "organization": "Daejeon Artience Festival (Daejeon Cultural Foundation / KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-10",
+      "period": "2022 Spring",
+      "role": "TA",
+      "organization": "HSS210 Language, Mind, Brain (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-11",
+      "period": "2021 Fall",
+      "role": "TA",
+      "organization": "HSS302(B) Language, Mind, Brain (KAIST)",
+      "details": ""
+    },
+    {
+      "id": "exp-12",
+      "period": "2020.03-2021.01",
+      "role": "Administrative Assistant",
+      "organization": "Sogang Counseling and Psychological Service",
+      "details": ""
+    },
+    {
+      "id": "exp-13",
+      "period": "2018, 2022",
+      "role": "Mentor",
+      "organization": "Major Mentoring Program for International Students (Sogang)",
+      "details": ""
+    }
+  ],
+  "services": [
+    {
+      "id": "svc-1",
+      "category": "Paper Review",
+      "details": "CHI 2025, 2026; IEEE VR 2025, 2026; ISMAR 2025; KCC 2025; CSCW 2024"
+    },
+    {
+      "id": "svc-2",
+      "category": "Poster Review",
+      "details": "KCPB Poster Jury 2025, 2026; CHI LBW 2022, 2025; ISMAR Poster 2021, 2022, 2023"
+    },
+    {
+      "id": "svc-3",
+      "category": "SV",
+      "details": "ISMAR 2025"
+    }
+  ],
+  "mentorships": [
+    {
+      "id": "m-1",
+      "period": "2023-2025",
+      "name": "Jungmin Lee",
+      "level": "MS",
+      "details": ""
+    },
+    {
+      "id": "m-2",
+      "period": "2025 Winter",
+      "name": "Hyowoo Shin",
+      "level": "Undergraduate",
+      "details": ""
+    },
+    {
+      "id": "m-3",
+      "period": "2024 Summer",
+      "name": "Yoonho Noh",
+      "level": "MS",
+      "details": ""
+    }
+  ],
+  "skills": [
+    {
+      "id": "s-1",
+      "category": "Programming",
+      "details": "Python, C#, Unity, Matlab (ERP Core, EEGLab), R"
+    },
+    {
+      "id": "s-2",
+      "category": "Experiment",
+      "details": "Cognitive and behavioral experiment design, structured interview, physiological measurement (EMG, ECG, EDA, EEG/ERP)"
+    },
+    {
+      "id": "s-3",
+      "category": "Media",
+      "details": "Premiere Pro, Figma"
+    },
+    {
+      "id": "s-4",
+      "category": "Languages",
+      "details": "Korean, English, Chinese"
+    }
+  ]
+}

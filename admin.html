@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="authOverlay" class="auth-overlay">
+      <div class="auth-card">
+        <h2 style="margin-top: 0.3rem">Admin Access</h2>
+        <form id="authForm" class="auth-form">
+          <div class="field">
+            <label for="adminPassword">Password</label>
+            <input id="adminPassword" type="password" placeholder="Enter admin password" autocomplete="current-password" />
+          </div>
+          <p class="fallback" style="margin: 0.45rem 0 0">Default password: <strong>HJPORT</strong></p>
+          <div class="admin-actions">
+            <button type="submit" class="primary">Unlock</button>
+          </div>
+          <p id="authError" class="text-warning" role="alert" style="margin: 0.4rem 0 0"></p>
+        </form>
+      </div>
+    </div>
+
+    <main class="admin-shell">
+      <div class="admin-card">
+        <div class="admin-head">
+          <h1>Portfolio Admin</h1>
+          <p style="margin: 0.45rem 0 0.1rem">Edit and save portfolio content for the public page.</p>
+        </div>
+        <div class="admin-body">
+          <div class="admin-section">
+            <h2>Profile</h2>
+            <div class="field-grid">
+              <div class="field">
+                <label for="profileName">Name</label>
+                <input id="profileName" />
+              </div>
+              <div class="field">
+                <label for="profileAffiliation">Affiliation</label>
+                <input id="profileAffiliation" />
+              </div>
+              <div class="field full">
+                <label for="profileIntro">Intro</label>
+                <textarea id="profileIntro"></textarea>
+              </div>
+              <div class="field full">
+                <label for="profileArea">Area of Interest (comma-separated)</label>
+                <textarea id="profileArea"></textarea>
+              </div>
+              <div class="field">
+                <label for="profileEmail">Email</label>
+                <input id="profileEmail" type="email" />
+              </div>
+              <div class="field">
+                <label for="profilePhoto">Photo Path</label>
+                <input id="profilePhoto" placeholder="assets/profile.png" />
+              </div>
+              <div class="field">
+                <label for="linkCv">CV Link</label>
+                <input id="linkCv" />
+              </div>
+              <div class="field">
+                <label for="linkOrcid">ORCID</label>
+                <input id="linkOrcid" />
+              </div>
+              <div class="field">
+                <label for="linkLinkedin">LinkedIn</label>
+                <input id="linkLinkedin" />
+              </div>
+              <div class="field">
+                <label for="linkScholar">Google Scholar</label>
+                <input id="linkScholar" />
+              </div>
+              <div class="field full">
+                <label for="linkHomepage">Homepage</label>
+                <input id="linkHomepage" />
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-section">
+            <h2>News</h2>
+            <div id="news-editor" class="dynamic-editor" data-section="news"></div>
+            <div class="btn-row"><button data-action="add" data-section="news">Add news</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Education</h2>
+            <div id="education-editor" class="dynamic-editor" data-section="education"></div>
+            <div class="btn-row"><button data-action="add" data-section="education">Add education</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Publications</h2>
+            <div id="publications-editor" class="dynamic-editor" data-section="publications"></div>
+            <div class="btn-row"><button data-action="add" data-section="publications">Add publication</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Conference Proceedings</h2>
+            <div id="conferenceProceedings-editor" class="dynamic-editor" data-section="conferenceProceedings"></div>
+            <div class="btn-row"><button data-action="add" data-section="conferenceProceedings">Add conference entry</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Honor and Scholarship</h2>
+            <div id="honors-editor" class="dynamic-editor" data-section="honors"></div>
+            <div class="btn-row"><button data-action="add" data-section="honors">Add honor</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Grants</h2>
+            <div id="grants-editor" class="dynamic-editor" data-section="grants"></div>
+            <div class="btn-row"><button data-action="add" data-section="grants">Add grant</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Projects</h2>
+            <div id="projects-editor" class="dynamic-editor" data-section="projects"></div>
+            <div class="btn-row"><button data-action="add" data-section="projects">Add project</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Experience</h2>
+            <div id="experiences-editor" class="dynamic-editor" data-section="experiences"></div>
+            <div class="btn-row"><button data-action="add" data-section="experiences">Add experience</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Academic Service</h2>
+            <div id="services-editor" class="dynamic-editor" data-section="services"></div>
+            <div class="btn-row"><button data-action="add" data-section="services">Add service entry</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Mentoring</h2>
+            <div id="mentorships-editor" class="dynamic-editor" data-section="mentorships"></div>
+            <div class="btn-row"><button data-action="add" data-section="mentorships">Add mentoring entry</button></div>
+          </div>
+
+          <div class="admin-section">
+            <h2>Technique and Skills</h2>
+            <div id="skills-editor" class="dynamic-editor" data-section="skills"></div>
+            <div class="btn-row"><button data-action="add" data-section="skills">Add skill entry</button></div>
+          </div>
+
+          <div class="admin-actions">
+            <button id="saveBtn" class="primary">Save to browser</button>
+            <button id="previewBtn">Preview</button>
+            <button id="exportBtn">Export JSON</button>
+            <button id="importBtn">Import JSON</button>
+            <button id="resetBtn">Reset from sample</button>
+            <button id="logoutBtn">Logout</button>
+          </div>
+          <input id="jsonInput" type="file" accept="application/json" style="display: none" />
+          <p id="statusLine" class="status-line" aria-live="polite"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="admin.js" type="module"></script>
+  </body>
+</html>
