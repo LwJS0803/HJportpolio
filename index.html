@@ -8,45 +8,49 @@
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero" id="top">
-        <div class="hero-overlay"></div>
-        <div class="hero-noise"></div>
-        <div class="container hero-inner">
-          <nav class="quick-nav" aria-label="Section navigation">
+      <header class="site-header">
+        <div class="container nav-wrap">
+          <a href="#top" class="brand">Hyuckjin Jang</a>
+          <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+            <span></span><span></span><span></span>
+          </button>
+          <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
             <a href="#news">News</a>
             <a href="#education">Education</a>
             <a href="#publications">Publications</a>
-            <a href="#conference-proceedings">Conference</a>
+            <a href="#conference">Conference</a>
             <a href="#honors">Honors</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
           </nav>
+        </div>
+      </header>
 
+      <section class="hero" id="top">
+        <div class="hero-overlay"></div>
+        <div class="container hero-inner">
           <div class="hero-grid">
             <section class="hero-copy">
               <p class="eyebrow">Research Portfolio</p>
               <h1 id="profile-name">Hyuckjin Jang</h1>
               <p id="profile-affiliation" class="affiliation">Graduate School of Culture Technology, KAIST</p>
               <p id="profile-intro" class="intro">
-                Human-Computer Interaction researcher exploring immersive technologies, sensory substitution, and assistive XR interfaces.
+                Human-Computer Interaction researcher focused on Extended Reality, sensory substitution, assistive technology, and cognitive neuroscience.
               </p>
               <div id="area-list" class="chip-row" aria-label="Area of interest"></div>
               <p class="contact">
                 <span>Email:</span>
-                <a id="profile-email" href="mailto:jang5s@kaist.ac.kr">jang5s@kaist.ac.kr</a>
+                <a id="profile-email" href="mailto:hyuckjin.jang@kaist.ac.kr">hyuckjin.jang@kaist.ac.kr</a>
               </p>
               <div id="profile-links" class="link-grid" aria-label="External profiles"></div>
             </section>
 
             <aside class="hero-photo-wrap">
               <div class="photo-card">
-                <img id="profile-photo" src="assets/profile.png" alt="Hyuckjin Jang profile photo" loading="lazy" />
+                <img id="profile-photo" src="assets/profile.JPG" alt="Hyuckjin Jang profile photo" loading="lazy" />
               </div>
             </aside>
           </div>
         </div>
-      </header>
+      </section>
 
       <main>
         <section class="section" id="news">
@@ -70,7 +74,7 @@
           </div>
         </section>
 
-        <section class="section section-muted" id="conference-proceedings">
+        <section class="section section-muted" id="conference">
           <div class="container">
             <h2>Conference Proceedings</h2>
             <div id="conference-list" class="card-list" role="list"></div>
@@ -79,50 +83,8 @@
 
         <section class="section" id="honors">
           <div class="container">
-            <h2>Honor and Scholarship</h2>
+            <h2>Honors and Scholarships</h2>
             <ul id="honor-list" class="stack-list" role="list"></ul>
-          </div>
-        </section>
-
-        <section class="section section-muted" id="grants">
-          <div class="container">
-            <h2>Grants</h2>
-            <div id="grant-list" class="card-list" role="list"></div>
-          </div>
-        </section>
-
-        <section class="section" id="projects">
-          <div class="container">
-            <h2>Projects</h2>
-            <div id="project-list" class="card-list" role="list"></div>
-          </div>
-        </section>
-
-        <section class="section section-muted" id="experience">
-          <div class="container">
-            <h2>Experience</h2>
-            <ul id="experience-list" class="stack-list" role="list"></ul>
-          </div>
-        </section>
-
-        <section class="section" id="academic-service">
-          <div class="container">
-            <h2>Academic Service</h2>
-            <ul id="service-list" class="stack-list" role="list"></ul>
-          </div>
-        </section>
-
-        <section class="section section-muted" id="mentoring">
-          <div class="container">
-            <h2>Mentoring</h2>
-            <ul id="mentoring-list" class="stack-list" role="list"></ul>
-          </div>
-        </section>
-
-        <section class="section" id="skills">
-          <div class="container">
-            <h2>Technique and Skills</h2>
-            <ul id="skill-list" class="stack-list" role="list"></ul>
           </div>
         </section>
       </main>

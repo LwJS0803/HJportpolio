@@ -3,19 +3,7 @@ const DATA_URL = "data/portfolio.json";
 const ADMIN_PASSWORD = "HJPORT";
 const AUTH_KEY = "hj-admin-session";
 
-const SECTION_KEYS = [
-  "news",
-  "education",
-  "publications",
-  "conferenceProceedings",
-  "honors",
-  "grants",
-  "projects",
-  "experiences",
-  "services",
-  "mentorships",
-  "skills",
-];
+const SECTION_KEYS = ["news", "education", "publications", "conferenceProceedings", "honors"];
 
 let dataState = {};
 
@@ -23,13 +11,13 @@ const sectionConfig = {
   news: [
     { key: "date", label: "Date", required: true, type: "text", placeholder: "2026-02-15" },
     { key: "title", label: "Title", required: true, type: "text", placeholder: "News title" },
-    { key: "body", label: "Body", required: true, type: "textarea", placeholder: "News summary" },
+    { key: "body", label: "Body", required: true, type: "textarea", placeholder: "News summary" }
   ],
   education: [
     { key: "period", label: "Period", required: true, type: "text", placeholder: "Mar.2023 -" },
     { key: "degree", label: "Degree", required: true, type: "text", placeholder: "Ph.D. Candidate" },
     { key: "institution", label: "Institution", required: true, type: "text", placeholder: "KAIST" },
-    { key: "notes", label: "Notes", required: false, type: "textarea", placeholder: "Advisor, lab, location" },
+    { key: "notes", label: "Notes", required: false, type: "textarea", placeholder: "Advisor, lab, location" }
   ],
   publications: [
     { key: "year", label: "Year", required: true, type: "text", placeholder: "2026" },
@@ -37,56 +25,23 @@ const sectionConfig = {
     { key: "authors", label: "Authors", required: true, type: "text", placeholder: "Author list" },
     { key: "venue", label: "Venue", required: true, type: "text", placeholder: "Journal / conference" },
     { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Pages / notes" },
-    { key: "link", label: "Link", required: false, type: "text", placeholder: "https://..." },
+    { key: "link", label: "Link", required: false, type: "text", placeholder: "https://..." }
   ],
   conferenceProceedings: [
-    { key: "year", label: "Year", required: true, type: "text", placeholder: "2026" },
-    { key: "month", label: "Month", required: true, type: "text", placeholder: "Jan" },
+    { key: "year", label: "Year", required: false, type: "text", placeholder: "2026" },
+    { key: "month", label: "Month", required: false, type: "text", placeholder: "Jan" },
     { key: "title", label: "Title", required: true, type: "text", placeholder: "Talk title" },
     { key: "authors", label: "Authors", required: true, type: "text", placeholder: "Author list" },
     { key: "venue", label: "Venue", required: true, type: "text", placeholder: "Conference name" },
     { key: "notes", label: "Notes", required: false, type: "textarea", placeholder: "Award / remarks" },
-    { key: "link", label: "Link", required: false, type: "text", placeholder: "https://..." },
+    { key: "link", label: "Link", required: false, type: "text", placeholder: "https://..." }
   ],
   honors: [
     { key: "year", label: "Year", required: true, type: "text", placeholder: "2025" },
     { key: "title", label: "Title", required: true, type: "text", placeholder: "Award title" },
     { key: "organization", label: "Organization", required: false, type: "text", placeholder: "KAIST" },
-    { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Additional notes" },
-  ],
-  grants: [
-    { key: "period", label: "Period", required: true, type: "text", placeholder: "2025-2026" },
-    { key: "title", label: "Title", required: true, type: "text", placeholder: "Grant name" },
-    { key: "organization", label: "Organization", required: false, type: "text", placeholder: "NRF" },
-    { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Grant summary" },
-  ],
-  projects: [
-    { key: "period", label: "Period", required: true, type: "text", placeholder: "2024-" },
-    { key: "title", label: "Title", required: true, type: "text", placeholder: "Project title" },
-    { key: "organization", label: "Organization", required: false, type: "text", placeholder: "VCL, Daejeon" },
-    { key: "role", label: "Role", required: false, type: "text", placeholder: "Leading researcher" },
-    { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Project details" },
-  ],
-  experiences: [
-    { key: "period", label: "Period", required: true, type: "text", placeholder: "2025 Spring" },
-    { key: "role", label: "Role", required: true, type: "text", placeholder: "TA" },
-    { key: "organization", label: "Organization", required: true, type: "text", placeholder: "Course / institute" },
-    { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Optional details" },
-  ],
-  services: [
-    { key: "category", label: "Category", required: true, type: "text", placeholder: "Paper Review" },
-    { key: "details", label: "Details", required: true, type: "textarea", placeholder: "CHI 2025, 2026..." },
-  ],
-  mentorships: [
-    { key: "period", label: "Period", required: true, type: "text", placeholder: "2023-2025" },
-    { key: "name", label: "Name", required: true, type: "text", placeholder: "Student name" },
-    { key: "level", label: "Level", required: false, type: "text", placeholder: "MS / Undergraduate" },
-    { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Optional details" },
-  ],
-  skills: [
-    { key: "category", label: "Category", required: true, type: "text", placeholder: "Programming" },
-    { key: "details", label: "Details", required: true, type: "textarea", placeholder: "Python, C#, ..." },
-  ],
+    { key: "details", label: "Details", required: false, type: "textarea", placeholder: "Additional notes" }
+  ]
 };
 
 const sectionDefault = {
@@ -94,13 +49,7 @@ const sectionDefault = {
   education: { id: "", period: "", degree: "", institution: "", notes: "" },
   publications: { id: "", year: "", title: "", authors: "", venue: "", details: "", link: "" },
   conferenceProceedings: { id: "", year: "", month: "", title: "", authors: "", venue: "", notes: "", link: "" },
-  honors: { id: "", year: "", title: "", organization: "", details: "" },
-  grants: { id: "", period: "", title: "", organization: "", details: "" },
-  projects: { id: "", period: "", title: "", organization: "", role: "", details: "" },
-  experiences: { id: "", period: "", role: "", organization: "", details: "" },
-  services: { id: "", category: "", details: "" },
-  mentorships: { id: "", period: "", name: "", level: "", details: "" },
-  skills: { id: "", category: "", details: "" },
+  honors: { id: "", year: "", title: "", organization: "", details: "" }
 };
 
 const editors = {
@@ -108,13 +57,7 @@ const editors = {
   education: document.getElementById("education-editor"),
   publications: document.getElementById("publications-editor"),
   conferenceProceedings: document.getElementById("conferenceProceedings-editor"),
-  honors: document.getElementById("honors-editor"),
-  grants: document.getElementById("grants-editor"),
-  projects: document.getElementById("projects-editor"),
-  experiences: document.getElementById("experiences-editor"),
-  services: document.getElementById("services-editor"),
-  mentorships: document.getElementById("mentorships-editor"),
-  skills: document.getElementById("skills-editor"),
+  honors: document.getElementById("honors-editor")
 };
 
 const authForm = document.getElementById("authForm");
@@ -132,20 +75,19 @@ function fallbackData() {
       intro: "",
       areaOfInterest: [],
       email: "hyuckjin.jang@kaist.ac.kr",
-      photo: "assets/profile.png",
-      links: { cv: "CV_Hyuckjin%20Jang%20(11).pdf", orcid: "", linkedin: "", scholar: "", homepage: "https://bit.ly/4ktJ2ah" },
+      photo: "assets/profile.JPG",
+      links: {
+        cv: "CV_Hyuckjin%20Jang%20(11).pdf",
+        orcid: "",
+        linkedin: "",
+        scholar: ""
+      }
     },
     news: [],
     education: [],
     publications: [],
     conferenceProceedings: [],
-    honors: [],
-    grants: [],
-    projects: [],
-    experiences: [],
-    services: [],
-    mentorships: [],
-    skills: [],
+    honors: []
   };
 }
 
@@ -165,6 +107,8 @@ function ensureShape(payload) {
 function isValidPayload(payload) {
   if (!payload || typeof payload !== "object") return false;
   if (!payload.profile || typeof payload.profile !== "object") return false;
+  if (!payload.profile.links || typeof payload.profile.links !== "object") return false;
+  if (!Array.isArray(payload.profile.areaOfInterest)) return false;
   return SECTION_KEYS.every((key) => Array.isArray(payload[key]));
 }
 
@@ -185,17 +129,17 @@ async function loadFromServer() {
 function fillProfileInputs() {
   const p = dataState.profile || {};
   const links = p.links || {};
+
   document.getElementById("profileName").value = p.name || "";
   document.getElementById("profileAffiliation").value = p.affiliation || "";
   document.getElementById("profileIntro").value = p.intro || "";
   document.getElementById("profileArea").value = Array.isArray(p.areaOfInterest) ? p.areaOfInterest.join(", ") : "";
   document.getElementById("profileEmail").value = p.email || "";
-  document.getElementById("profilePhoto").value = p.photo || "assets/profile.png";
+  document.getElementById("profilePhoto").value = p.photo || "assets/profile.JPG";
   document.getElementById("linkCv").value = links.cv || "";
   document.getElementById("linkOrcid").value = links.orcid || "";
   document.getElementById("linkLinkedin").value = links.linkedin || "";
   document.getElementById("linkScholar").value = links.scholar || "";
-  document.getElementById("linkHomepage").value = links.homepage || "";
 }
 
 function readProfileInputs() {
@@ -204,19 +148,15 @@ function readProfileInputs() {
     name: document.getElementById("profileName").value.trim(),
     affiliation: document.getElementById("profileAffiliation").value.trim(),
     intro: document.getElementById("profileIntro").value.trim(),
-    areaOfInterest: areaRaw
-      .split(",")
-      .map((v) => v.trim())
-      .filter(Boolean),
+    areaOfInterest: areaRaw.split(",").map((v) => v.trim()).filter(Boolean),
     email: document.getElementById("profileEmail").value.trim(),
-    photo: document.getElementById("profilePhoto").value.trim() || "assets/profile.png",
+    photo: document.getElementById("profilePhoto").value.trim() || "assets/profile.JPG",
     links: {
       cv: document.getElementById("linkCv").value.trim(),
       orcid: document.getElementById("linkOrcid").value.trim(),
       linkedin: document.getElementById("linkLinkedin").value.trim(),
-      scholar: document.getElementById("linkScholar").value.trim(),
-      homepage: document.getElementById("linkHomepage").value.trim(),
-    },
+      scholar: document.getElementById("linkScholar").value.trim()
+    }
   };
 }
 
@@ -236,13 +176,14 @@ function createRow(section, item, index) {
     label.textContent = `${field.label}${field.required ? " *" : ""}`;
 
     const input = field.type === "textarea" ? document.createElement("textarea") : document.createElement("input");
-    if (field.type !== "textarea") input.type = "text";
     input.id = id;
     input.className = "editor-field";
     input.dataset.field = field.key;
     input.placeholder = field.placeholder || "";
     input.required = Boolean(field.required);
     input.value = item[field.key] || "";
+
+    if (field.type !== "textarea") input.type = "text";
 
     row.append(label, input);
     wrapper.appendChild(row);
@@ -272,6 +213,7 @@ function renderSection(section) {
   const root = editors[section];
   if (!root) return;
   root.innerHTML = "";
+
   const rows = dataState[section] || [];
   if (!rows.length) {
     const empty = document.createElement("p");
@@ -281,14 +223,12 @@ function renderSection(section) {
     return;
   }
 
-  rows.forEach((item, index) => {
-    root.appendChild(createRow(section, item, index));
-  });
+  rows.forEach((item, index) => root.appendChild(createRow(section, item, index)));
 }
 
 function renderAll() {
   fillProfileInputs();
-  SECTION_KEYS.forEach((key) => renderSection(key));
+  SECTION_KEYS.forEach((section) => renderSection(section));
 }
 
 function syncFromEditors() {
@@ -297,15 +237,16 @@ function syncFromEditors() {
   SECTION_KEYS.forEach((section) => {
     const root = editors[section];
     if (!root) return;
-    const blocks = Array.from(root.querySelectorAll(".admin-entry"));
+
+    const entries = Array.from(root.querySelectorAll(".admin-entry"));
     const next = [];
 
-    blocks.forEach((block) => {
-      const index = Number(block.dataset.index);
+    entries.forEach((entry) => {
+      const index = Number(entry.dataset.index);
       const base = dataState[section]?.[index] || { ...sectionDefault[section], id: randomId(section) };
 
       sectionConfig[section].forEach((field) => {
-        const input = block.querySelector(`[data-field="${field.key}"]`);
+        const input = entry.querySelector(`[data-field="${field.key}"]`);
         if (input) base[field.key] = input.value.trim();
       });
 
@@ -331,17 +272,22 @@ function addItem(section) {
 
 function moveItem(section, index, delta) {
   const rows = dataState[section];
+  if (!Array.isArray(rows)) return;
+
   const next = index + delta;
-  if (!Array.isArray(rows) || next < 0 || next >= rows.length) return;
-  const tmp = rows[index];
+  if (next < 0 || next >= rows.length) return;
+
+  const temp = rows[index];
   rows[index] = rows[next];
-  rows[next] = tmp;
+  rows[next] = temp;
   renderSection(section);
 }
 
 function removeItem(section, index) {
   const rows = dataState[section];
-  if (!Array.isArray(rows) || index < 0 || index >= rows.length) return;
+  if (!Array.isArray(rows)) return;
+  if (index < 0 || index >= rows.length) return;
+
   rows.splice(index, 1);
   renderSection(section);
 }
@@ -382,6 +328,7 @@ function bindEvents() {
 
     const action = target.dataset.action;
     if (!action) return;
+
     const section = target.dataset.section;
     const index = Number(target.dataset.index);
 
@@ -421,6 +368,7 @@ function bindEvents() {
   document.getElementById("resetBtn").addEventListener("click", async (event) => {
     event.preventDefault();
     if (!window.confirm("Load sample data from portfolio.json and discard browser edits?")) return;
+
     try {
       const server = await loadFromServer();
       dataState = ensureShape(server);
