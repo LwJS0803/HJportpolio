@@ -544,6 +544,7 @@ body.admin-page {
   display: grid;
   grid-template-columns: 252px minmax(0, 1fr);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .admin-sidebar {
@@ -553,6 +554,7 @@ body.admin-page {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
 }
 
 .admin-brand-title {
@@ -611,6 +613,7 @@ body.admin-page {
 .admin-main {
   overflow: auto;
   padding: 1.5rem;
+  min-width: 0;
 }
 
 .admin-topbar {
@@ -673,6 +676,7 @@ body.admin-page {
   border-radius: var(--radius);
   background: var(--admin-surface);
   padding: 1rem;
+  min-width: 0;
 }
 
 .admin-panel.is-active {
@@ -757,6 +761,7 @@ body.admin-page {
   background: #fff;
   color: #2c2724;
   padding: 0.62rem 0.66rem;
+  min-width: 0;
 }
 
 .field textarea {
@@ -775,6 +780,7 @@ body.admin-page {
   background: #fcfbfa;
   padding: 0.75rem;
   position: relative;
+  min-width: 0;
 }
 
 .move-buttons {

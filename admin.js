@@ -356,33 +356,35 @@ function importJson(file) {
 }
 
 function setActivePanel(panel) {
-  activePanel = panel;
+  const exists = document.querySelector(`.admin-panel[data-panel-content="${panel}"]`);
+  activePanel = exists ? panel : "overview";
 
   document.querySelectorAll(".admin-nav-item[data-panel]").forEach((node) => {
-    node.classList.toggle("is-active", node.dataset.panel === panel);
+    node.classList.toggle("is-active", node.dataset.panel === activePanel);
   });
 
   document.querySelectorAll(".admin-panel").forEach((node) => {
-    node.classList.toggle("is-active", node.dataset.panelContent === panel);
+    node.classList.toggle("is-active", node.dataset.panelContent === activePanel);
   });
 }
 
 function bindEvents() {
   document.body.addEventListener("click", (event) => {
     const target = event.target;
-    if (!(target instanceof HTMLElement)) return;
+    if (!(target instanceof Element)) return;
+    const button = target.closest("button");
+    if (!button) return;
 
-    if (target.matches(".admin-nav-item[data-panel]")) {
-      setActivePanel(target.dataset.panel || "overview");
+    if (button.matches(".admin-nav-item[data-panel]")) {
+      setActivePanel(button.dataset.panel || "overview");
       return;
     }
 
-    if (!(target instanceof HTMLButtonElement)) return;
-    const action = target.dataset.action;
+    const action = button.dataset.action;
     if (!action) return;
 
-    const section = target.dataset.section;
-    const index = Number(target.dataset.index);
+    const section = button.dataset.section;
+    const index = Number(button.dataset.index);
 
     if (action === "add") return addItem(section);
     if (action === "moveUp") return moveItem(section, index, -1);
