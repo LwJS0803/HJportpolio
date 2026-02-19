@@ -483,6 +483,8 @@ body.portfolio-page {
   font-size: 1.1rem;
   line-height: 1.43;
   color: #2d2824;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .date-chip {
@@ -516,11 +518,18 @@ body.portfolio-page {
   white-space: nowrap;
 }
 
+.award-under-title {
+  margin-top: 0.45rem;
+  max-width: min(100%, 340px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .research-footer {
   margin-top: 0.45rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.55rem;
   min-width: 0;
 }
@@ -553,21 +562,29 @@ body.portfolio-page {
   flex: 0 0 auto;
 }
 
+.name-highlight {
+  font-weight: 700;
+}
+
 .honor-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .honor-card {
-  position: relative;
   padding: 1rem;
   min-height: 120px;
-  padding-right: 6.6rem;
+}
+
+.honor-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
 }
 
 .honor-year {
-  position: absolute;
-  top: 0.9rem;
-  right: 0.9rem;
+  position: static;
+  flex-shrink: 0;
 }
 
 .honor-title {
@@ -1054,13 +1071,25 @@ a:focus-visible {
     flex-wrap: nowrap;
   }
 
+  .award-under-title {
+    max-width: min(72vw, 240px);
+  }
+
   .award-chip-footer {
     max-width: min(62vw, 220px);
+  }
+
+  .date-chip {
+    min-height: 24px;
+    padding: 0 0.5rem;
+    font-size: 0.66rem;
   }
 
   .hero-photo {
     order: -1;
     max-width: 310px;
+    justify-self: center;
+    margin-inline: auto;
   }
 
   .hero-links {
@@ -1089,13 +1118,11 @@ a:focus-visible {
   }
 
   .honor-card {
-    padding-right: 1rem;
-    padding-top: 2.8rem;
+    padding: 1rem;
   }
 
   .honor-year {
-    top: 0.8rem;
-    right: 0.85rem;
+    position: static;
   }
 
   .footer-inner {

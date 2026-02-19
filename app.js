@@ -124,6 +124,25 @@ function make(tag, className, text) {
   return node;
 }
 
+function appendHighlightedAuthorText(node, text) {
+  const source = String(text || "");
+  const pattern = /Jang,\s*H\./g;
+  let last = 0;
+  let match;
+
+  while ((match = pattern.exec(source)) !== null) {
+    if (match.index > last) {
+      node.appendChild(document.createTextNode(source.slice(last, match.index)));
+    }
+    node.appendChild(make("strong", "name-highlight", match[0]));
+    last = pattern.lastIndex;
+  }
+
+  if (last < source.length) {
+    node.appendChild(document.createTextNode(source.slice(last)));
+  }
+}
+
 function clearAndGet(id) {
   const node = document.getElementById(id);
   node.innerHTML = "";
@@ -280,19 +299,32 @@ function renderResearch(rootId, items, dateGetter, noteGetter, awardGetter, empt
     head.appendChild(chips);
     content.appendChild(head);
 
+    const awardText = String(awardGetter(item) || "").trim();
+    if (awardText) {
+      const award = make("span", "award-chip award-under-title", awardText);
+      award.title = awardText;
+      award.setAttribute("aria-label", awardText);
+      content.appendChild(award);
+    }
+
     const citationRaw = String(item.citation || "").trim();
     if (citationRaw) {
-      content.appendChild(make("p", "research-citation", citationRaw));
+      const p = make("p", "research-citation");
+      appendHighlightedAuthorText(p, citationRaw);
+      content.appendChild(p);
     } else {
       const fallback = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(noteGetter(item), "")]
         .filter(Boolean)
         .join("\n");
-      if (fallback) content.appendChild(make("p", "research-citation", fallback));
+      if (fallback) {
+        const p = make("p", "research-citation");
+        appendHighlightedAuthorText(p, fallback);
+        content.appendChild(p);
+      }
     }
 
-    const awardText = String(awardGetter(item) || "").trim();
     const link = normalizeLink(item.link);
-    const hasFooter = Boolean(link || awardText);
+    const hasFooter = Boolean(link);
     if (hasFooter) {
       const footer = make("div", "research-footer");
       if (link) {
@@ -301,12 +333,6 @@ function renderResearch(rootId, items, dateGetter, noteGetter, awardGetter, empt
         a.target = "_blank";
         a.rel = "noreferrer";
         footer.appendChild(a);
-      }
-      if (awardText) {
-        const award = make("span", "award-chip award-chip-footer", awardText);
-        award.title = awardText;
-        award.setAttribute("aria-label", awardText);
-        footer.appendChild(award);
       }
       content.appendChild(footer);
     }
@@ -355,8 +381,10 @@ function renderHonors(items) {
     const viewTitle = split ? split[2] : rawTitle;
 
     const li = make("li", "honor-card");
-    li.appendChild(make("span", "date-chip honor-year", safeText(viewYear, "Date TBD")));
-    li.appendChild(make("h3", "honor-title", safeText(viewTitle)));
+    const head = make("div", "honor-head");
+    head.appendChild(make("h3", "honor-title", safeText(viewTitle)));
+    head.appendChild(make("span", "date-chip honor-year", safeText(viewYear, "Date TBD")));
+    li.appendChild(head);
     li.appendChild(make("p", "honor-org", safeText(item.organization, "")));
     li.appendChild(make("p", "honor-note", safeText(item.details, "")));
     root.appendChild(li);
