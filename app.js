@@ -268,12 +268,12 @@ function renderEducation(items) {
   });
 }
 
-function renderResearch(rootId, items, dateGetter, noteGetter, emptyText) {
+function renderResearch(rootId, items, dateGetter, noteGetter, emptyText, cardClass = "") {
   const root = clearAndGet(rootId);
   if (!items.length) return appendFallback(root, emptyText);
 
   items.forEach((item) => {
-    const card = make("article", "research-card");
+    const card = make("article", ["research-card", cardClass].filter(Boolean).join(" "));
     const media = createCardImage(item.image, item.title || "research image");
     if (media) {
       card.appendChild(media);
@@ -313,7 +313,14 @@ function renderResearch(rootId, items, dateGetter, noteGetter, emptyText) {
 
 function renderPublications(items) {
   const rows = sortByYearDesc(items, "year");
-  renderResearch("publication-list", rows, (item) => safeText(item.year, "Date TBD"), (item) => item.details, "No publication entries yet.");
+  renderResearch(
+    "publication-list",
+    rows,
+    (item) => safeText(item.year, "Date TBD"),
+    (item) => item.details,
+    "No publication entries yet.",
+    "publication-card"
+  );
 }
 
 function renderConferences(items) {

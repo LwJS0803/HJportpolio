@@ -412,6 +412,27 @@ body.portfolio-page {
   grid-template-columns: 1fr;
 }
 
+.publication-card {
+  grid-template-columns: 132px minmax(0, 1fr);
+  align-items: start;
+}
+
+.publication-card .research-thumb {
+  width: 132px;
+  height: 96px;
+  margin: 0;
+}
+
+.publication-card .research-thumb img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.publication-card.no-thumb {
+  grid-template-columns: 1fr;
+}
+
 .research-thumb {
   border: 1px solid #ded7d1;
   border-radius: 8px;
@@ -951,6 +972,20 @@ a:focus-visible {
   .research-card {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .publication-card {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .publication-card .research-thumb {
+    width: 96px;
+    height: 72px;
+  }
+
+  .publication-card.no-thumb {
+    grid-template-columns: 1fr;
   }
 
   .hero-photo {
