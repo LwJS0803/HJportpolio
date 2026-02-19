@@ -47,17 +47,6 @@ function normalize(payload) {
 }
 
 async function loadData() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    try {
-      const parsed = JSON.parse(stored);
-      if (hasRequiredShape(parsed)) return normalize(parsed);
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      localStorage.removeItem(STORAGE_KEY);
-    }
-  }
-
   try {
     const response = await fetch(DATA_URL, { cache: "no-cache" });
     if (response.ok) {
@@ -261,14 +250,16 @@ function renderEducation(items) {
   rows.forEach((item) => {
     const li = make("li", "edu-card");
     li.appendChild(make("h3", "edu-degree", safeText(item.degree)));
-    li.appendChild(make("p", "edu-period", safeText(item.period)));
+    if (String(item.major || "").trim()) {
+      li.appendChild(make("p", "edu-major", safeText(item.major)));
+    }
     li.appendChild(make("p", "edu-inst", safeText(item.institution, "")));
     li.appendChild(make("p", "edu-note", safeText(item.notes, "")));
     root.appendChild(li);
   });
 }
 
-function renderResearch(rootId, items, dateGetter, noteGetter, emptyText, cardClass = "") {
+function renderResearch(rootId, items, dateGetter, noteGetter, awardGetter, emptyText, cardClass = "") {
   const root = clearAndGet(rootId);
   if (!items.length) return appendFallback(root, emptyText);
 
@@ -284,7 +275,13 @@ function renderResearch(rootId, items, dateGetter, noteGetter, emptyText, cardCl
     const content = make("div", "research-content");
     const head = make("div", "research-head");
     head.appendChild(make("h3", "", safeText(item.title)));
-    head.appendChild(make("span", "date-chip", dateGetter(item)));
+    const chips = make("div", "meta-chips");
+    chips.appendChild(make("span", "date-chip", dateGetter(item)));
+    const awardText = String(awardGetter(item) || "").trim();
+    if (awardText) {
+      chips.appendChild(make("span", "award-chip", `Award: ${awardText}`));
+    }
+    head.appendChild(chips);
     content.appendChild(head);
 
     const citationRaw = String(item.citation || "").trim();
@@ -318,6 +315,7 @@ function renderPublications(items) {
     rows,
     (item) => safeText(item.year, "Date TBD"),
     (item) => item.details,
+    (item) => item.award,
     "No publication entries yet.",
     "publication-card"
   );
@@ -330,6 +328,7 @@ function renderConferences(items) {
     rows,
     (item) => formatConferenceDate(item.month, item.year),
     (item) => item.notes,
+    (item) => item.award,
     "No conference entries yet."
   );
 }
@@ -365,9 +364,5 @@ async function render() {
   renderConferences(data.conferenceProceedings);
   renderHonors(data.honors);
 }
-
-window.addEventListener("storage", (event) => {
-  if (event.key === STORAGE_KEY) render();
-});
 
 render();

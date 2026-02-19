@@ -33,6 +33,7 @@
       "id": "e-1",
       "period": "Mar.2023 -",
       "degree": "Ph.D. Candidate",
+      "major": "Dual Major: Graduate School of Culture Technology + Graduate School of Metaverse",
       "institution": "Graduate School of Culture Technology, KAIST",
       "notes": "Interdisciplinary major in Graduate School of Metaverse, KAIST. Visual Cognition Lab (Advisor: Jeongmi Lee), Daejeon, Korea."
     },
@@ -47,6 +48,7 @@
       "id": "e-3",
       "period": "Mar.2016 - Feb.2021",
       "degree": "B.A.",
+      "major": "Dual Major: Communication and Media + Cognitive Science",
       "institution": "Sogang University",
       "notes": "Communication and Media Cognitive Science, Summa Cum Laude, Seoul, Korea."
     }
@@ -90,7 +92,8 @@
       "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 11",
       "details": "pp.9699-9708. Honorable Mention Award in ISMAR 2025.",
       "link": "https://doi.org/10.1109/TVCG.2025.3616803",
-      "image": "assets/howDoWeReadText.png"
+      "image": "assets/howDoWeReadText.png",
+      "award": "Honorable Mention (ISMAR 2025)"
     },
     {
       "id": "p-5",
@@ -113,7 +116,8 @@
       "venue": "Korean Society for Cognitive and Biological Psychology (KCPB), Seoul, South Korea",
       "notes": "Outstanding Presentation Award.",
       "link": "",
-      "image": ""
+      "image": "",
+      "award": "Outstanding Presentation Award"
     },
     {
       "id": "c-2",

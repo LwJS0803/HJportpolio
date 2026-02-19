@@ -63,7 +63,7 @@ body.portfolio-page {
 .header-inner {
   min-height: 72px;
   display: grid;
-  grid-template-columns: 220px 1fr auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1rem;
 }
@@ -184,7 +184,7 @@ body.portfolio-page {
 }
 
 .hero-wrap-single {
-  width: min(920px, 100%);
+  width: 100%;
 }
 
 .hero-kicker {
@@ -372,7 +372,7 @@ body.portfolio-page {
 }
 
 .edu-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .edu-card {
@@ -399,6 +399,13 @@ body.portfolio-page {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.62;
+}
+
+.edu-major {
+  margin: 0.32rem 0 0;
+  color: #6f6056;
+  font-size: 0.86rem;
+  font-weight: 600;
 }
 
 .research-card {
@@ -454,6 +461,14 @@ body.portfolio-page {
   gap: 0.78rem;
 }
 
+.meta-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .research-head h3 {
   font-size: 1.1rem;
   line-height: 1.43;
@@ -474,6 +489,22 @@ body.portfolio-page {
   letter-spacing: 0.05em;
   font-weight: 700;
   flex-shrink: 0;
+}
+
+.award-chip {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid #e0c27a;
+  background: #fff6dc;
+  color: #7b5d1d;
+  padding: 0 0.64rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .research-citation {
