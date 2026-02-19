@@ -402,6 +402,7 @@ body.portfolio-page {
 
 .edu-list {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
 }
 
 .edu-card {
@@ -409,7 +410,8 @@ body.portfolio-page {
   border-radius: 0;
   background: transparent;
   border-left: 5px solid #b49a8a;
-  padding: 0.15rem 0 0.15rem 0.95rem;
+  padding: 0.35rem 0 0.35rem 1.05rem;
+  min-height: 168px;
 }
 
 .edu-degree {
@@ -1158,6 +1160,7 @@ a:focus-visible {
   .edu-card {
     border-left-width: 4px;
     padding-left: 0.8rem;
+    min-height: 0;
   }
 
   .honor-card {
