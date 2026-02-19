@@ -63,7 +63,7 @@ body.portfolio-page {
 .header-inner {
   min-height: 72px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 1rem;
 }
@@ -74,6 +74,7 @@ body.portfolio-page {
   font-family: "Lora", serif;
   font-size: 1.06rem;
   font-weight: 600;
+  justify-self: start;
 }
 
 .site-nav {
@@ -81,6 +82,7 @@ body.portfolio-page {
   justify-content: center;
   align-items: center;
   gap: 1.05rem;
+  justify-self: center;
 }
 
 .site-nav a {
@@ -127,6 +129,7 @@ body.portfolio-page {
   border-radius: 9px;
   background: var(--surface);
   padding: 0;
+  justify-self: end;
 }
 
 .menu-toggle span {

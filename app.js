@@ -279,7 +279,7 @@ function renderResearch(rootId, items, dateGetter, noteGetter, awardGetter, empt
     chips.appendChild(make("span", "date-chip", dateGetter(item)));
     const awardText = String(awardGetter(item) || "").trim();
     if (awardText) {
-      chips.appendChild(make("span", "award-chip", `Award: ${awardText}`));
+      chips.appendChild(make("span", "award-chip", awardText));
     }
     head.appendChild(chips);
     content.appendChild(head);

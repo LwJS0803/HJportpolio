@@ -24,8 +24,20 @@
     {
       "id": "n-1",
       "date": "2026-02-15",
-      "title": "Portfolio updated from CV",
-      "body": "Sections were streamlined and updated for responsive desktop/mobile reading."
+      "title": "New portfolio page has been updated",
+      "body": "Welcome all for visiting my page!"
+    },
+    {
+      "id": "n-2",
+      "date": "2026-01-23",
+      "title": "Outstanding Presentation Award in KCPB'26",
+      "body": "Awarded the Outstanding Presentation Award at Korean Cognitive & Biological Psychology Conference 2026"
+    },
+    {
+      "id": "n-3",
+      "date": "2025-12-10",
+      "title": "2025 Graduate Student Outstanding Research Prize",
+      "body": "Awarded the 2025 Graduate Student Outstanding Research Prize in College of Liberal Arts and Convergence Science, KAIST"
     }
   ],
   "education": [
@@ -33,24 +45,24 @@
       "id": "e-1",
       "period": "Mar.2023 -",
       "degree": "Ph.D. Candidate",
-      "major": "Dual Major: Graduate School of Culture Technology + Graduate School of Metaverse",
+      "major": "Major: Graduate School of Culture Technology, Graduate School of Metaverse",
       "institution": "Graduate School of Culture Technology, KAIST",
-      "notes": "Interdisciplinary major in Graduate School of Metaverse, KAIST. Visual Cognition Lab (Advisor: Jeongmi Lee), Daejeon, Korea."
+      "notes": "Visual Cognition Lab (Advisor: Jeongmi Lee)"
     },
     {
       "id": "e-2",
       "period": "Mar.2021 - Feb.2023",
       "degree": "M.S.",
       "institution": "Graduate School of Culture Technology, KAIST",
-      "notes": "Visual Cognition Lab (Advisor: Jeongmi Lee), Daejeon, Korea."
+      "notes": "Visual Cognition Lab (Advisor: Jeongmi Lee)"
     },
     {
       "id": "e-3",
       "period": "Mar.2016 - Feb.2021",
       "degree": "B.A.",
-      "major": "Dual Major: Communication and Media + Cognitive Science",
+      "major": "Major: Communication, Media Cognitive Science",
       "institution": "Sogang University",
-      "notes": "Communication and Media Cognitive Science, Summa Cum Laude, Seoul, Korea."
+      "notes": "Summa Cum Laude"
     }
   ],
   "publications": [
@@ -69,8 +81,8 @@
       "year": "2025",
       "title": "Birds of a Rhythm: The Effects of Haptic Pattern Similarity on People's Social Perceptions in Virtual Reality",
       "authors": "Jang, H., and Lee, J.",
-      "venue": "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
-      "details": "pp.1-18",
+      "venue": "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems (pp.1-18).",
+      "details": "",
       "link": "https://doi.org/10.1145/3706598.3714264",
       "image": "assets/birdsofRhythm.jpg"
     },
@@ -79,8 +91,8 @@
       "year": "2025",
       "title": "Effective VR Intervention to Reduce Implicit Bias towards People with Physical Disabilities: The Interplay between Experience Design and Individual Characteristics",
       "authors": "Jang, H., and Lee, J.",
-      "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 5",
-      "details": "pp.2342-2352",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 5 (pp.2342-2352).",
+      "details": "",
       "link": "https://doi.org/10.1109/TVCG.2025.3549532",
       "image": "assets/EffectivePWPD.png"
     },
@@ -89,19 +101,19 @@
       "year": "2025",
       "title": "How Do We Read Texts in VR?: The Effects of Text Segment Quantity and Social Distraction on Text Readability in Virtual Museum Contexts",
       "authors": "Lee, J., Jang, H., and Lee, J.",
-      "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 11",
-      "details": "pp.9699-9708. Honorable Mention Award in ISMAR 2025.",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 11 (pp.9699-9708).",
+      "details": "",
       "link": "https://doi.org/10.1109/TVCG.2025.3616803",
       "image": "assets/howDoWeReadText.png",
-      "award": "Honorable Mention (ISMAR 2025)"
+      "award": "Honorable Mention Award (ISMAR 2025)"
     },
     {
       "id": "p-5",
       "year": "2025",
       "title": "Voronoi Rooms: Dynamic Visibility Modulation of Overlapping Spaces for Telepresence",
       "authors": "Kim, T., Shin, J., Kim, H., Jang, H., Kang, J., Lee, S.",
-      "venue": "ACM Transactions on Graphics, vol. 45(2), no.17",
-      "details": "pp.1-15",
+      "venue": "ACM Transactions on Graphics, vol. 45(2), no.17 (pp.1-15).",
+      "details": "",
       "link": "https://doi.org/10.1145/3777900",
       "image": "assets/voronoi.jpg"
     }
@@ -114,7 +126,7 @@
       "title": "Exploring the Social Potential of Haptic Cues for Modulating Users' Group Perception in Virtual Crowd Contexts",
       "authors": "Jang, H., and Lee, J.",
       "venue": "Korean Society for Cognitive and Biological Psychology (KCPB), Seoul, South Korea",
-      "notes": "Outstanding Presentation Award.",
+      "notes": "",
       "link": "",
       "image": "",
       "award": "Outstanding Presentation Award"
@@ -158,10 +170,10 @@
       "month": "Oct",
       "title": "Exploring Factors of VR-based Wheelchair Simulation for Reducing Implicit Bias",
       "authors": "Jang, H., and Lee, J.",
-      "venue": "2023 IEEE ISMAR-Adjunct",
-      "notes": "pp.673-674",
+      "venue": "2023 IEEE ISMAR-Adjunct (pp.673-674)",
+      "notes": "",
       "link": "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00144",
-      "image": ""
+      "image": "assets/prePWPD.png"
     },
     {
       "id": "c-6",
@@ -180,10 +192,10 @@
       "month": "Aug",
       "title": "Sense of Embodiment Inducement for People with Reduced Lower-body Mobility and Sensations with Partial-Visuomotor Stimulation",
       "authors": "Jang, H., Kim, T., Oh, S., Lee, J., Lee, S., Yoon, S.H.",
-      "venue": "ACM SIGGRAPH 2022 Emerging Technologies",
-      "notes": "pp.1-2",
+      "venue": "ACM SIGGRAPH 2022 Emerging Technologies (pp.1-2)",
+      "notes": "",
       "link": "https://doi.org/10.1145/3532721.3535568",
-      "image": ""
+      "image": "assets/SoE.png"
     },
     {
       "id": "c-8",
@@ -191,10 +203,10 @@
       "month": "Oct",
       "title": "Bring Store in My Room: AR Store Authoring System for Spatial Experience in Mobile Shopping",
       "authors": "Kim, S., Jang, H., Oh, K.T., Oh, S., Kim, D., Woo, W., Lee, J., Ahn, J., Yoon, S.H.",
-      "venue": "2022 IEEE ISMAR-Adjunct",
-      "notes": "pp.654-656",
+      "venue": "2022 IEEE ISMAR-Adjunct (pp.654-656)",
+      "notes": "",
       "link": "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00135",
-      "image": ""
+      "image": "assets/bringStore.png"
     },
     {
       "id": "c-9",
@@ -202,10 +214,10 @@
       "month": "Oct",
       "title": "Designing a Multi-Modal Communication System for the Deaf and Hard-of-Hearing Users",
       "authors": "Lee, G. B., Jang, H., Jeong, H., Woo, W.",
-      "venue": "2021 IEEE ISMAR-Adjunct",
-      "notes": "pp.429-434",
+      "venue": "2021 IEEE ISMAR-Adjunct (pp.429-434)",
+      "notes": "",
       "link": "https://doi.org/10.1109/ISMAR-Adjunct54149.2021.00097",
-      "image": ""
+      "image": "assets/DesignSignAR.png"
     }
   ],
   "honors": [
