@@ -511,10 +511,26 @@ body.portfolio-page {
   color: #7b5d1d;
   padding: 0 0.64rem;
   font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.research-footer {
+  margin-top: 0.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.award-chip-footer {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
 }
 
 .research-citation {
@@ -533,6 +549,8 @@ body.portfolio-page {
   text-transform: uppercase;
   letter-spacing: 0.09em;
   font-weight: 700;
+  min-width: 50px;
+  flex: 0 0 auto;
 }
 
 .honor-list {
@@ -1030,6 +1048,14 @@ a:focus-visible {
   .publication-card.no-thumb,
   .conference-card.no-thumb {
     grid-template-columns: 1fr;
+  }
+
+  .research-footer {
+    flex-wrap: nowrap;
+  }
+
+  .award-chip-footer {
+    max-width: min(62vw, 220px);
   }
 
   .hero-photo {

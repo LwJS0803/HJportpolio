@@ -277,10 +277,6 @@ function renderResearch(rootId, items, dateGetter, noteGetter, awardGetter, empt
     head.appendChild(make("h3", "", safeText(item.title)));
     const chips = make("div", "meta-chips");
     chips.appendChild(make("span", "date-chip", dateGetter(item)));
-    const awardText = String(awardGetter(item) || "").trim();
-    if (awardText) {
-      chips.appendChild(make("span", "award-chip", awardText));
-    }
     head.appendChild(chips);
     content.appendChild(head);
 
@@ -294,13 +290,25 @@ function renderResearch(rootId, items, dateGetter, noteGetter, awardGetter, empt
       if (fallback) content.appendChild(make("p", "research-citation", fallback));
     }
 
+    const awardText = String(awardGetter(item) || "").trim();
     const link = normalizeLink(item.link);
-    if (link) {
-      const a = make("a", "research-link", "View");
-      a.href = link;
-      a.target = "_blank";
-      a.rel = "noreferrer";
-      content.appendChild(a);
+    const hasFooter = Boolean(link || awardText);
+    if (hasFooter) {
+      const footer = make("div", "research-footer");
+      if (link) {
+        const a = make("a", "research-link", "View");
+        a.href = link;
+        a.target = "_blank";
+        a.rel = "noreferrer";
+        footer.appendChild(a);
+      }
+      if (awardText) {
+        const award = make("span", "award-chip award-chip-footer", awardText);
+        award.title = awardText;
+        award.setAttribute("aria-label", awardText);
+        footer.appendChild(award);
+      }
+      content.appendChild(footer);
     }
 
     card.appendChild(content);
