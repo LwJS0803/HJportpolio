@@ -57,10 +57,10 @@
       "year": "2026",
       "title": "Feel the Sync: The Effects of Shared Haptic Feedback on Short-Cycle Repetitive Turn-Taking Collaboration of Remote Users in Virtual Reality",
       "authors": "Jang, H., Kim, B., Baek, K. D., Ahn, C., Lee, J.",
-      "venue": "ACM CHI '26",
+      "venue": "Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems",
       "details": "Conditionally accepted.",
       "link": "",
-      "image": ""
+      "image": "assets/FeeltheSync.png"
     },
     {
       "id": "p-2",
@@ -70,7 +70,7 @@
       "venue": "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
       "details": "pp.1-18",
       "link": "https://doi.org/10.1145/3706598.3714264",
-      "image": ""
+      "image": "assets/birdsofRhythm.jpg"
     },
     {
       "id": "p-3",
@@ -80,7 +80,7 @@
       "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 5",
       "details": "pp.2342-2352",
       "link": "https://doi.org/10.1109/TVCG.2025.3549532",
-      "image": ""
+      "image": "assets/EffectivePWPD.png"
     },
     {
       "id": "p-4",
@@ -90,7 +90,7 @@
       "venue": "IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 11",
       "details": "pp.9699-9708. Honorable Mention Award in ISMAR 2025.",
       "link": "https://doi.org/10.1109/TVCG.2025.3616803",
-      "image": ""
+      "image": "assets/howDoWeReadText.png"
     },
     {
       "id": "p-5",
@@ -100,7 +100,7 @@
       "venue": "ACM Transactions on Graphics, vol. 45(2), no.17",
       "details": "pp.1-15",
       "link": "https://doi.org/10.1145/3777900",
-      "image": ""
+      "image": "assets/voronoi.png"
     }
   ],
   "conferenceProceedings": [
