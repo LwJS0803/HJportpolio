@@ -4,42 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Content Manager</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260219r3" />
   </head>
   <body class="admin-page">
     <div id="authOverlay" class="auth-overlay">
       <div class="auth-card">
         <h2>Admin Access</h2>
-        <p>Enter the admin password to continue.</p>
+        <p>Enter password to edit portfolio content.</p>
         <form id="authForm" class="auth-form">
           <div class="field">
             <label for="adminPassword">Password</label>
             <input id="adminPassword" type="password" placeholder="Enter admin password" autocomplete="current-password" />
           </div>
-          <p class="fallback">Default password: <strong>HJPORT</strong></p>
-          <div class="admin-top-actions">
-            <button type="submit" class="btn-primary">Unlock</button>
-          </div>
+          <p class="auth-help">Default password: <strong>HJPORT</strong></p>
+          <button type="submit" class="btn btn-dark">Unlock</button>
           <p id="authError" class="text-warning" role="alert"></p>
         </form>
       </div>
     </div>
 
     <div class="admin-layout">
-      <aside class="admin-sidebar" aria-label="Admin navigation">
+      <aside class="admin-sidebar">
         <div class="admin-brand">
-          <p class="admin-brand-name">Hyuckjin Jang</p>
+          <p class="admin-brand-title">Hyuckjin Jang</p>
           <p class="admin-brand-sub">Portfolio Studio</p>
         </div>
 
-        <nav class="admin-nav">
-          <button class="admin-nav-item is-active" data-panel="overview" type="button">Overview</button>
-          <button class="admin-nav-item" data-panel="profile" type="button">Profile</button>
-          <button class="admin-nav-item" data-panel="news" type="button">News</button>
-          <button class="admin-nav-item" data-panel="education" type="button">Education</button>
-          <button class="admin-nav-item" data-panel="publications" type="button">Publications</button>
-          <button class="admin-nav-item" data-panel="conferenceProceedings" type="button">Conference</button>
-          <button class="admin-nav-item" data-panel="honors" type="button">Honors</button>
+        <nav class="admin-nav" aria-label="Admin sections">
+          <button type="button" class="admin-nav-item is-active" data-panel="overview">Overview</button>
+          <button type="button" class="admin-nav-item" data-panel="profile">Profile</button>
+          <button type="button" class="admin-nav-item" data-panel="news">News</button>
+          <button type="button" class="admin-nav-item" data-panel="education">Education</button>
+          <button type="button" class="admin-nav-item" data-panel="publications">Publications</button>
+          <button type="button" class="admin-nav-item" data-panel="conferenceProceedings">Conference</button>
+          <button type="button" class="admin-nav-item" data-panel="honors">Honors</button>
         </nav>
 
         <div class="admin-sidebar-foot">
@@ -50,22 +48,22 @@
       <main class="admin-main">
         <header class="admin-topbar">
           <div>
-            <h1>Portfolio Content Manager</h1>
-            <p>Manage portfolio data synced with public page via browser storage.</p>
+            <h1>Portfolio Dashboard</h1>
+            <p>Manage public content synced through local browser storage.</p>
           </div>
-          <div class="admin-top-actions">
-            <button id="previewBtn" type="button">Preview</button>
-            <button id="saveBtn" type="button" class="btn-primary">Save</button>
-            <button id="exportBtn" type="button">Publish(JSON Export)</button>
-            <button id="importBtn" type="button">Import JSON</button>
-            <button id="resetBtn" type="button">Reset Sample</button>
+          <div class="admin-actions">
+            <button id="previewBtn" type="button" class="btn">Preview</button>
+            <button id="saveBtn" type="button" class="btn btn-dark">Save</button>
+            <button id="exportBtn" type="button" class="btn">Publish(JSON Export)</button>
+            <button id="importBtn" type="button" class="btn">Import</button>
+            <button id="resetBtn" type="button" class="btn">Reset</button>
           </div>
         </header>
 
         <input id="jsonInput" type="file" accept="application/json" hidden />
         <p id="statusLine" class="status-line" aria-live="polite"></p>
 
-        <section id="overviewPanel" class="admin-panel is-active" data-panel-content="overview">
+        <section class="admin-panel is-active" data-panel-content="overview">
           <div class="kpi-grid">
             <article class="kpi-card">
               <p>Total Items</p>
@@ -83,57 +81,25 @@
         </section>
 
         <section class="admin-panel" data-panel-content="profile">
-          <div class="panel-head">
-            <h2>Profile</h2>
-          </div>
+          <div class="panel-head"><h2>Profile</h2></div>
           <div class="field-grid">
-            <div class="field">
-              <label for="profileName">Name</label>
-              <input id="profileName" />
-            </div>
-            <div class="field">
-              <label for="profileAffiliation">Affiliation</label>
-              <input id="profileAffiliation" />
-            </div>
-            <div class="field full">
-              <label for="profileIntro">Intro</label>
-              <textarea id="profileIntro"></textarea>
-            </div>
-            <div class="field full">
-              <label for="profileArea">Area of Interest (comma-separated)</label>
-              <textarea id="profileArea"></textarea>
-            </div>
-            <div class="field">
-              <label for="profileEmail">Email</label>
-              <input id="profileEmail" type="email" />
-            </div>
-            <div class="field">
-              <label for="profilePhoto">Photo Path</label>
-              <input id="profilePhoto" placeholder="assets/profile.JPG" />
-            </div>
-            <div class="field">
-              <label for="linkCv">CV Link</label>
-              <input id="linkCv" />
-            </div>
-            <div class="field">
-              <label for="linkOrcid">ORCID</label>
-              <input id="linkOrcid" />
-            </div>
-            <div class="field">
-              <label for="linkLinkedin">LinkedIn</label>
-              <input id="linkLinkedin" />
-            </div>
-            <div class="field">
-              <label for="linkScholar">Google Scholar</label>
-              <input id="linkScholar" />
-            </div>
+            <div class="field"><label for="profileName">Name</label><input id="profileName" /></div>
+            <div class="field"><label for="profileAffiliation">Affiliation</label><input id="profileAffiliation" /></div>
+            <div class="field full"><label for="profileIntro">Intro</label><textarea id="profileIntro"></textarea></div>
+            <div class="field full"><label for="profileArea">Area of Interest (comma-separated)</label><textarea id="profileArea"></textarea></div>
+            <div class="field"><label for="profileEmail">Email</label><input id="profileEmail" type="email" /></div>
+            <div class="field"><label for="profilePhoto">Photo Path</label><input id="profilePhoto" placeholder="assets/profile.JPG" /></div>
+            <div class="field"><label for="linkCv">CV Link</label><input id="linkCv" /></div>
+            <div class="field"><label for="linkOrcid">ORCID</label><input id="linkOrcid" /></div>
+            <div class="field"><label for="linkLinkedin">LinkedIn</label><input id="linkLinkedin" /></div>
+            <div class="field"><label for="linkScholar">Google Scholar</label><input id="linkScholar" /></div>
           </div>
         </section>
 
         <section class="admin-panel" data-panel-content="news">
           <div class="panel-head">
             <h2>News</h2>
-            <div class="btn-row"><button data-action="add" data-section="news" type="button">Add news</button></div>
+            <button type="button" class="btn" data-action="add" data-section="news">Add News</button>
           </div>
           <div id="news-editor" class="dynamic-editor" data-section="news"></div>
         </section>
@@ -141,7 +107,7 @@
         <section class="admin-panel" data-panel-content="education">
           <div class="panel-head">
             <h2>Education</h2>
-            <div class="btn-row"><button data-action="add" data-section="education" type="button">Add education</button></div>
+            <button type="button" class="btn" data-action="add" data-section="education">Add Education</button>
           </div>
           <div id="education-editor" class="dynamic-editor" data-section="education"></div>
         </section>
@@ -149,7 +115,7 @@
         <section class="admin-panel" data-panel-content="publications">
           <div class="panel-head">
             <h2>Publications</h2>
-            <div class="btn-row"><button data-action="add" data-section="publications" type="button">Add publication</button></div>
+            <button type="button" class="btn" data-action="add" data-section="publications">Add Publication</button>
           </div>
           <div id="publications-editor" class="dynamic-editor" data-section="publications"></div>
         </section>
@@ -157,21 +123,21 @@
         <section class="admin-panel" data-panel-content="conferenceProceedings">
           <div class="panel-head">
             <h2>Conference Proceedings</h2>
-            <div class="btn-row"><button data-action="add" data-section="conferenceProceedings" type="button">Add conference entry</button></div>
+            <button type="button" class="btn" data-action="add" data-section="conferenceProceedings">Add Conference</button>
           </div>
           <div id="conferenceProceedings-editor" class="dynamic-editor" data-section="conferenceProceedings"></div>
         </section>
 
         <section class="admin-panel" data-panel-content="honors">
           <div class="panel-head">
-            <h2>Honors and Scholarships</h2>
-            <div class="btn-row"><button data-action="add" data-section="honors" type="button">Add honor</button></div>
+            <h2>Honors & Scholarships</h2>
+            <button type="button" class="btn" data-action="add" data-section="honors">Add Honor</button>
           </div>
           <div id="honors-editor" class="dynamic-editor" data-section="honors"></div>
         </section>
       </main>
     </div>
 
-    <script src="admin.js" type="module"></script>
+    <script src="admin.js?v=20260219r3" type="module"></script>
   </body>
 </html>

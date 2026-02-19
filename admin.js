@@ -23,7 +23,7 @@ const sectionConfig = {
   publications: [
     { key: "year", label: "Year", required: true, type: "text", placeholder: "2026" },
     { key: "title", label: "Title", required: true, type: "text", placeholder: "Paper title" },
-    { key: "image", label: "Image URL/Path", required: false, type: "text", placeholder: "assets/pub1.jpg or https://..." },
+    { key: "image", label: "Highlight Image URL/Path", required: false, type: "text", placeholder: "assets/pub1.jpg or https://..." },
     { key: "citation", label: "Citation (free layout)", required: false, type: "textarea", placeholder: "Optional custom citation text. Line breaks are supported." },
     { key: "authors", label: "Authors", required: true, type: "text", placeholder: "Author list" },
     { key: "venue", label: "Venue", required: true, type: "text", placeholder: "Journal / conference" },
@@ -101,11 +101,9 @@ function ensureShape(payload) {
   data.profile = data.profile || {};
   data.profile.links = data.profile.links || {};
   if (!Array.isArray(data.profile.areaOfInterest)) data.profile.areaOfInterest = [];
-
   SECTION_KEYS.forEach((key) => {
     if (!Array.isArray(data[key])) data[key] = [];
   });
-
   return data;
 }
 
@@ -117,10 +115,6 @@ function isValidPayload(payload) {
   return SECTION_KEYS.every((key) => Array.isArray(payload[key]));
 }
 
-function setStatus(text) {
-  statusLine.textContent = text;
-}
-
 function randomId(prefix) {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
 }
@@ -130,26 +124,8 @@ function parseYear(value) {
   return matched ? Number(matched[0]) : 0;
 }
 
-function computeLatestYear() {
-  const years = [];
-  [
-    ...(dataState.publications || []).map((v) => v.year),
-    ...(dataState.conferenceProceedings || []).map((v) => v.year),
-    ...(dataState.honors || []).map((v) => v.year)
-  ].forEach((y) => {
-    const parsed = parseYear(y);
-    if (parsed > 0) years.push(parsed);
-  });
-
-  if (!years.length) return "-";
-  return String(Math.max(...years));
-}
-
-function updateKpis() {
-  const totalItems = SECTION_KEYS.reduce((acc, key) => acc + (Array.isArray(dataState[key]) ? dataState[key].length : 0), 0);
-  document.getElementById("kpiTotalItems").textContent = String(totalItems);
-  document.getElementById("kpiPublications").textContent = String((dataState.publications || []).length);
-  document.getElementById("kpiLatestYear").textContent = computeLatestYear();
+function setStatus(text) {
+  statusLine.textContent = text;
 }
 
 async function loadFromServer() {
@@ -161,7 +137,6 @@ async function loadFromServer() {
 function fillProfileInputs() {
   const p = dataState.profile || {};
   const links = p.links || {};
-
   document.getElementById("profileName").value = p.name || "";
   document.getElementById("profileAffiliation").value = p.affiliation || "";
   document.getElementById("profileIntro").value = p.intro || "";
@@ -246,10 +221,9 @@ function createRow(section, item, index) {
 function renderSection(section) {
   const root = editors[section];
   if (!root) return;
-
   root.innerHTML = "";
-  const rows = dataState[section] || [];
 
+  const rows = dataState[section] || [];
   if (!rows.length) {
     const empty = document.createElement("p");
     empty.className = "fallback";
@@ -261,9 +235,31 @@ function renderSection(section) {
   rows.forEach((item, index) => root.appendChild(createRow(section, item, index)));
 }
 
+function computeLatestYear() {
+  const years = [];
+  [
+    ...(dataState.publications || []).map((v) => v.year),
+    ...(dataState.conferenceProceedings || []).map((v) => v.year),
+    ...(dataState.honors || []).map((v) => v.year)
+  ].forEach((y) => {
+    const parsed = parseYear(y);
+    if (parsed) years.push(parsed);
+  });
+
+  if (!years.length) return "-";
+  return String(Math.max(...years));
+}
+
+function updateKpis() {
+  const total = SECTION_KEYS.reduce((acc, key) => acc + (Array.isArray(dataState[key]) ? dataState[key].length : 0), 0);
+  document.getElementById("kpiTotalItems").textContent = String(total);
+  document.getElementById("kpiPublications").textContent = String((dataState.publications || []).length);
+  document.getElementById("kpiLatestYear").textContent = computeLatestYear();
+}
+
 function renderAll() {
   fillProfileInputs();
-  SECTION_KEYS.forEach((section) => renderSection(section));
+  SECTION_KEYS.forEach((key) => renderSection(key));
   updateKpis();
 }
 
@@ -316,9 +312,7 @@ function moveItem(section, index, delta) {
   const next = index + delta;
   if (next < 0 || next >= rows.length) return;
 
-  const temp = rows[index];
-  rows[index] = rows[next];
-  rows[next] = temp;
+  [rows[index], rows[next]] = [rows[next], rows[index]];
   renderSection(section);
 }
 
@@ -364,8 +358,8 @@ function importJson(file) {
 function setActivePanel(panel) {
   activePanel = panel;
 
-  document.querySelectorAll(".admin-nav-item[data-panel]").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.panel === panel);
+  document.querySelectorAll(".admin-nav-item[data-panel]").forEach((node) => {
+    node.classList.toggle("is-active", node.dataset.panel === panel);
   });
 
   document.querySelectorAll(".admin-panel").forEach((node) => {
@@ -384,7 +378,6 @@ function bindEvents() {
     }
 
     if (!(target instanceof HTMLButtonElement)) return;
-
     const action = target.dataset.action;
     if (!action) return;
 
@@ -450,8 +443,8 @@ function bindEvents() {
 
   authForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const normalizedInput = passwordInput.value.replace(/\s+/g, "").toUpperCase();
-    if (normalizedInput !== ADMIN_PASSWORD.toUpperCase()) {
+    const normalized = passwordInput.value.replace(/\s+/g, "").toUpperCase();
+    if (normalized !== ADMIN_PASSWORD.toUpperCase()) {
       authError.textContent = "Wrong password.";
       passwordInput.select();
       return;

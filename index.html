@@ -4,131 +4,122 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hyuckjin Jang | Research Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260219r3" />
   </head>
-  <body class="portfolio-page">
-    <div class="portfolio-shell" id="top">
-      <header class="site-header">
-        <div class="container nav-wrap">
-          <a href="#top" class="brand">Hyuckjin Jang</a>
-          <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
-            <span></span><span></span><span></span>
-          </button>
-          <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
-            <a href="#news">News</a>
-            <a href="#education">Education</a>
-            <a href="#publications">Publications</a>
-            <a href="#conference">Conference</a>
-            <a href="#honors">Honors</a>
-          </nav>
-        </div>
-      </header>
+  <body class="portfolio-page" id="top">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#top" class="brand">Hyuckjin Jang</a>
+        <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
+          <a href="#news">News</a>
+          <a href="#education">Education</a>
+          <a href="#publications">Publications</a>
+          <a href="#conference">Conference</a>
+          <a href="#honors">Honors</a>
+        </nav>
+        <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
 
-      <main>
-        <section class="hero-section" aria-label="Hero">
-          <div class="container section-grid hero-grid">
-            <div class="section-label hero-label">
-              <p class="section-kicker">Research Portfolio</p>
-              <h2>About</h2>
-            </div>
-            <div class="section-content">
-              <div class="hero-content">
-                <section class="hero-copy">
-                  <p class="hero-eyebrow">Open for collaboration</p>
-                  <h1 id="profile-name">Hyuckjin Jang</h1>
-                  <p id="profile-affiliation" class="affiliation">Graduate School of Culture Technology, KAIST</p>
-                  <p id="profile-intro" class="intro">
-                    Human-Computer Interaction researcher focused on Extended Reality, sensory substitution, assistive technology, and cognitive neuroscience.
-                  </p>
-                  <div id="area-list" class="chip-row" aria-label="Area of interest"></div>
-                  <p class="contact">
-                    <span>Email</span>
-                    <a id="profile-email" href="mailto:hyuckjin.jang@kaist.ac.kr">hyuckjin.jang@kaist.ac.kr</a>
-                  </p>
-                  <div class="hero-links-scroll" aria-label="External links">
-                    <div id="profile-links" class="profile-links-row"></div>
-                  </div>
-                </section>
-
-                <aside class="hero-photo-wrap">
-                  <div class="photo-card">
-                    <img id="profile-photo" src="assets/profile.JPG" alt="Hyuckjin Jang profile photo" loading="lazy" />
-                  </div>
-                </aside>
+    <main>
+      <section id="about" class="hero-section">
+        <div class="container">
+          <div class="hero-wrap hero-wrap-single">
+            <section class="hero-copy">
+              <p class="hero-kicker">Open for collaboration</p>
+              <h1 id="profile-name">Hyuckjin Jang</h1>
+              <p id="profile-affiliation" class="hero-affiliation">Graduate School of Culture Technology, KAIST</p>
+              <p id="profile-intro" class="hero-intro">
+                Human-Computer Interaction researcher focused on Extended Reality, sensory substitution, assistive technology, media psychology, and cognitive neuroscience.
+              </p>
+              <div id="area-list" class="area-list" aria-label="Area of interest"></div>
+              <p class="hero-contact">
+                <span>Email</span>
+                <a id="profile-email" href="mailto:hyuckjin.jang@kaist.ac.kr">hyuckjin.jang@kaist.ac.kr</a>
+              </p>
+              <div class="hero-links-scroll">
+                <div id="profile-links" class="hero-links" aria-label="External links"></div>
               </div>
-            </div>
+            </section>
+            <aside class="hero-photo">
+              <div class="portrait-frame">
+                <img id="profile-photo" src="assets/profile.JPG" alt="Hyuckjin Jang profile photo" loading="lazy" />
+              </div>
+            </aside>
           </div>
-        </section>
-
-        <section class="content-section" id="news">
-          <div class="container section-grid">
-            <div class="section-label">
-              <h2>Latest News</h2>
-              <p class="section-kicker">Updates</p>
-            </div>
-            <div class="section-content">
-              <div id="news-list" class="news-list" role="list"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="content-section section-alt" id="education">
-          <div class="container section-grid">
-            <div class="section-label">
-              <h2>Education</h2>
-              <p class="section-kicker">Timeline</p>
-            </div>
-            <div class="section-content">
-              <ul id="education-list" class="stack-list" role="list"></ul>
-            </div>
-          </div>
-        </section>
-
-        <section class="content-section" id="publications">
-          <div class="container section-grid">
-            <div class="section-label">
-              <h2>Publications</h2>
-              <p class="section-kicker">Research</p>
-            </div>
-            <div class="section-content">
-              <div id="publication-list" class="card-list" role="list"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="content-section section-alt" id="conference">
-          <div class="container section-grid">
-            <div class="section-label">
-              <h2>Conference Proceedings</h2>
-              <p class="section-kicker">Presentations</p>
-            </div>
-            <div class="section-content">
-              <div id="conference-list" class="card-list" role="list"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="content-section" id="honors">
-          <div class="container section-grid">
-            <div class="section-label">
-              <h2>Honors & Scholarships</h2>
-              <p class="section-kicker">Recognitions</p>
-            </div>
-            <div class="section-content">
-              <ul id="honor-list" class="stack-list" role="list"></ul>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <div class="container footer-inner">
-          <p>© 2026 Hyuckjin Jang</p>
-          <a href="#top">Back to top</a>
         </div>
-      </footer>
-    </div>
+      </section>
 
-    <script src="app.js" type="module"></script>
+      <section id="news" class="content-section">
+        <div class="container lane">
+          <aside class="lane-label">
+            <h2>Latest News</h2>
+            <p class="lane-kicker">Updates</p>
+          </aside>
+          <div class="lane-body">
+            <div id="news-list" class="news-list" role="list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="content-section section-alt">
+        <div class="container lane">
+          <aside class="lane-label">
+            <h2>Education</h2>
+            <p class="lane-kicker">Timeline</p>
+          </aside>
+          <div class="lane-body">
+            <ul id="education-list" class="edu-list" role="list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications" class="content-section">
+        <div class="container lane">
+          <aside class="lane-label">
+            <h2>Publications</h2>
+            <p class="lane-kicker">Research</p>
+          </aside>
+          <div class="lane-body">
+            <div id="publication-list" class="research-list" role="list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="conference" class="content-section section-alt">
+        <div class="container lane">
+          <aside class="lane-label">
+            <h2>Conference Proceedings</h2>
+            <p class="lane-kicker">Presentations</p>
+          </aside>
+          <div class="lane-body">
+            <div id="conference-list" class="research-list" role="list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="honors" class="content-section">
+        <div class="container lane">
+          <aside class="lane-label">
+            <h2>Honors & Scholarships</h2>
+            <p class="lane-kicker">Recognitions</p>
+          </aside>
+          <div class="lane-body">
+            <ul id="honor-list" class="honor-list" role="list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Hyuckjin Jang</p>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="app.js?v=20260219r3" type="module"></script>
   </body>
 </html>

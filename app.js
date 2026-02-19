@@ -8,7 +8,7 @@ function getFallbackData() {
     profile: {
       name: "Hyuckjin Jang",
       affiliation: "Graduate School of Culture Technology, KAIST",
-      intro: "Human-Computer Interaction researcher focused on Extended Reality, sensory substitution, assistive technology, and cognitive neuroscience.",
+      intro: "Human-Computer Interaction researcher focused on Extended Reality, sensory substitution, assistive technology, media psychology, and cognitive neuroscience.",
       areaOfInterest: ["Human-Computer Interaction", "Extended Reality"],
       email: "hyuckjin.jang@kaist.ac.kr",
       photo: "assets/profile.JPG",
@@ -148,23 +148,20 @@ function appendFallback(container, text) {
 function createCardImage(image, altText) {
   const raw = String(image || "").trim();
   if (!raw) return null;
-  const wrapper = make("div", "card-media");
+  const wrap = make("figure", "research-thumb");
   const img = document.createElement("img");
   img.src = raw;
   img.alt = altText;
   img.loading = "lazy";
-  img.onerror = () => {
-    wrapper.remove();
-  };
-  wrapper.appendChild(img);
-  return wrapper;
+  img.onerror = () => wrap.remove();
+  wrap.appendChild(img);
+  return wrap;
 }
 
 function bindMenu() {
   if (menuBound) return;
   const toggle = document.getElementById("menuToggle");
   const nav = document.getElementById("siteNav");
-
   if (!toggle || !nav) return;
   menuBound = true;
 
@@ -178,9 +175,7 @@ function bindMenu() {
     toggle.setAttribute("aria-expanded", String(opened));
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
+  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Node)) return;
@@ -211,9 +206,9 @@ function renderProfile(profile) {
   const areaRoot = clearAndGet("area-list");
   const areas = Array.isArray(profile.areaOfInterest) ? profile.areaOfInterest : [];
   if (!areas.length) {
-    areaRoot.appendChild(make("span", "chip", "Area of Interest not set"));
+    areaRoot.appendChild(make("span", "area-chip", "Area of Interest not set"));
   } else {
-    areas.forEach((area) => areaRoot.appendChild(make("span", "chip", safeText(area))));
+    areas.forEach((item) => areaRoot.appendChild(make("span", "area-chip", safeText(item))));
   }
 
   const links = profile.links || {};
@@ -221,17 +216,17 @@ function renderProfile(profile) {
   const defs = [
     ["CV", links.cv],
     ["ORCID", links.orcid],
-    ["LinkedIn", links.linkedin],
-    ["Google Scholar", links.scholar]
+    ["Google Scholar", links.scholar],
+    ["LinkedIn", links.linkedin]
   ];
 
   defs.forEach(([label, href]) => {
-    const link = normalizeLink(href);
-    const node = document.createElement(link ? "a" : "span");
-    node.className = link ? "social-link" : "social-link disabled";
+    const normalized = normalizeLink(href);
+    const node = document.createElement(normalized ? "a" : "span");
+    node.className = normalized ? "ext-link" : "ext-link is-disabled";
     node.textContent = label;
-    if (link) {
-      node.href = link;
+    if (normalized) {
+      node.href = normalized;
       node.target = "_blank";
       node.rel = "noreferrer";
     }
@@ -245,11 +240,11 @@ function renderNews(items) {
   if (!rows.length) return appendFallback(root, "No news entries yet.");
 
   rows.forEach((item) => {
-    const card = make("article", "news-item");
-    const time = make("time", "", formatNewsDate(item.date));
+    const card = make("article", "news-entry");
+    const time = make("time", "news-date", formatNewsDate(item.date));
     if (item.date) time.dateTime = item.date;
 
-    const body = make("div", "news-content");
+    const body = make("div", "news-body");
     body.appendChild(make("h3", "", safeText(item.title)));
     body.appendChild(make("p", "", safeText(item.body, "")));
 
@@ -264,88 +259,72 @@ function renderEducation(items) {
   if (!rows.length) return appendFallback(root, "No education entries yet.");
 
   rows.forEach((item) => {
-    const li = make("li", "list-item");
-    li.appendChild(make("span", "stack-title", `${safeText(item.degree)} / ${safeText(item.period)}`));
-    li.appendChild(make("span", "stack-sub", safeText(item.institution, "")));
-    li.appendChild(make("span", "stack-note", safeText(item.notes, "")));
+    const li = make("li", "edu-card");
+    li.appendChild(make("h3", "edu-degree", safeText(item.degree)));
+    li.appendChild(make("p", "edu-period", safeText(item.period)));
+    li.appendChild(make("p", "edu-inst", safeText(item.institution, "")));
+    li.appendChild(make("p", "edu-note", safeText(item.notes, "")));
     root.appendChild(li);
   });
 }
 
-function renderPublications(items) {
-  const root = clearAndGet("publication-list");
-  const rows = sortByYearDesc(items, "year");
-  if (!rows.length) return appendFallback(root, "No publication entries yet.");
+function renderResearch(rootId, items, dateGetter, noteGetter, emptyText) {
+  const root = clearAndGet(rootId);
+  if (!items.length) return appendFallback(root, emptyText);
 
-  rows.forEach((item) => {
-    const card = make("article", "card-item");
-    const media = createCardImage(item.image, item.title || "publication image");
-    if (media) card.appendChild(media);
+  items.forEach((item) => {
+    const card = make("article", "research-card");
+    const media = createCardImage(item.image, item.title || "research image");
+    if (media) {
+      card.appendChild(media);
+    } else {
+      card.classList.add("no-thumb");
+    }
 
-    const top = make("div", "card-top");
-    top.appendChild(make("h3", "", safeText(item.title)));
-    top.appendChild(make("span", "date-chip", safeText(item.year, "Date TBD")));
-    card.appendChild(top);
+    const content = make("div", "research-content");
+    const head = make("div", "research-head");
+    head.appendChild(make("h3", "", safeText(item.title)));
+    head.appendChild(make("span", "date-chip", dateGetter(item)));
+    content.appendChild(head);
 
     const citationRaw = String(item.citation || "").trim();
     if (citationRaw) {
-      card.appendChild(make("p", "citation", citationRaw));
+      content.appendChild(make("p", "research-citation", citationRaw));
     } else {
-      const fallbackCitation = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(item.details, "")]
+      const fallback = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(noteGetter(item), "")]
         .filter(Boolean)
         .join("\n");
-      if (fallbackCitation) card.appendChild(make("p", "citation", fallbackCitation));
+      if (fallback) content.appendChild(make("p", "research-citation", fallback));
     }
 
     const link = normalizeLink(item.link);
     if (link) {
-      const a = make("a", "card-link", "View");
+      const a = make("a", "research-link", "View");
       a.href = link;
       a.target = "_blank";
       a.rel = "noreferrer";
-      card.appendChild(a);
+      content.appendChild(a);
     }
 
+    card.appendChild(content);
     root.appendChild(card);
   });
 }
 
+function renderPublications(items) {
+  const rows = sortByYearDesc(items, "year");
+  renderResearch("publication-list", rows, (item) => safeText(item.year, "Date TBD"), (item) => item.details, "No publication entries yet.");
+}
+
 function renderConferences(items) {
-  const root = clearAndGet("conference-list");
   const rows = sortConference(items);
-  if (!rows.length) return appendFallback(root, "No conference entries yet.");
-
-  rows.forEach((item) => {
-    const card = make("article", "card-item");
-    const media = createCardImage(item.image, item.title || "conference image");
-    if (media) card.appendChild(media);
-
-    const top = make("div", "card-top");
-    top.appendChild(make("h3", "", safeText(item.title)));
-    top.appendChild(make("span", "date-chip", formatConferenceDate(item.month, item.year)));
-    card.appendChild(top);
-
-    const citationRaw = String(item.citation || "").trim();
-    if (citationRaw) {
-      card.appendChild(make("p", "citation", citationRaw));
-    } else {
-      const fallbackCitation = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(item.notes, "")]
-        .filter(Boolean)
-        .join("\n");
-      if (fallbackCitation) card.appendChild(make("p", "citation", fallbackCitation));
-    }
-
-    const link = normalizeLink(item.link);
-    if (link) {
-      const a = make("a", "card-link", "View");
-      a.href = link;
-      a.target = "_blank";
-      a.rel = "noreferrer";
-      card.appendChild(a);
-    }
-
-    root.appendChild(card);
-  });
+  renderResearch(
+    "conference-list",
+    rows,
+    (item) => formatConferenceDate(item.month, item.year),
+    (item) => item.notes,
+    "No conference entries yet."
+  );
 }
 
 function renderHonors(items) {
@@ -360,11 +339,11 @@ function renderHonors(items) {
     const viewYear = rawYear || (split ? split[1] : "");
     const viewTitle = split ? split[2] : rawTitle;
 
-    const li = make("li", "list-item honor-item");
-    li.appendChild(make("span", "date-chip honor-chip", safeText(viewYear, "Date TBD")));
-    li.appendChild(make("span", "stack-title honor-title", safeText(viewTitle)));
-    li.appendChild(make("span", "stack-sub", safeText(item.organization, "")));
-    li.appendChild(make("span", "stack-note", safeText(item.details, "")));
+    const li = make("li", "honor-card");
+    li.appendChild(make("span", "date-chip honor-year", safeText(viewYear, "Date TBD")));
+    li.appendChild(make("h3", "honor-title", safeText(viewTitle)));
+    li.appendChild(make("p", "honor-org", safeText(item.organization, "")));
+    li.appendChild(make("p", "honor-note", safeText(item.details, "")));
     root.appendChild(li);
   });
 }
