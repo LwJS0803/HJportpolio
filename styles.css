@@ -273,30 +273,48 @@ body.portfolio-page {
 
 .ext-link {
   min-height: 44px;
+  min-width: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  border: 1px solid #d7cdc6;
-  background: #fff;
-  color: #403934;
+  border-radius: 12px;
+  border: 1px solid #cbbbae;
+  background: #f7f2ed;
+  color: #6d5747;
   text-decoration: none;
-  padding: 0 0.95rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0;
   white-space: nowrap;
 }
 
 .ext-link:hover,
 .ext-link:focus-visible {
-  border-color: #bcaea4;
-  background: #faf7f4;
+  border-color: #b89f8c;
+  background: #efe4db;
+  color: #59412f;
 }
 
 .ext-link.is-disabled {
   pointer-events: none;
   opacity: 0.42;
   border-style: dashed;
+}
+
+.ext-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .portrait-frame {
@@ -383,7 +401,7 @@ body.portfolio-page {
 }
 
 .edu-list {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .edu-card {

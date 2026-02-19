@@ -124,6 +124,16 @@ function make(tag, className, text) {
   return node;
 }
 
+function linkIconSvg(key) {
+  const icons = {
+    cv: '<svg class="ext-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm6 1.5V9h4.5"/><path fill="currentColor" d="M8 12h8v1.5H8zM8 15h8v1.5H8zM8 18h6v1.5H8z"/></svg>',
+    orcid: '<svg class="ext-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="9" r="1.2" fill="currentColor"/><path fill="currentColor" d="M8.2 11.2h1.6v5.6H8.2zM11.3 11.2h2.8a2.6 2.6 0 1 1 0 5.2h-2.8zm1.6 1.4v2.4h1.1a1.2 1.2 0 0 0 0-2.4z"/></svg>',
+    scholar: '<svg class="ext-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12 3 10 5-10 5L2 8z"/><path fill="currentColor" d="M6 11.4V15c0 2.6 2.7 4 6 4s6-1.4 6-4v-3.6l-6 3z"/></svg>',
+    linkedin: '<svg class="ext-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.4 8.2a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6M4.8 9.5H8v9.7H4.8zm5.2 0H13v1.3h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7v5.3h-3.2v-4.7c0-1.1 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5v4.8H10z"/></svg>'
+  };
+  return icons[key] || "";
+}
+
 function appendHighlightedAuthorText(node, text) {
   const source = String(text || "");
   const pattern = /Jang,\s*H\./g;
@@ -222,17 +232,19 @@ function renderProfile(profile) {
   const links = profile.links || {};
   const linkRoot = clearAndGet("profile-links");
   const defs = [
-    ["CV", links.cv],
-    ["ORCID", links.orcid],
-    ["Google Scholar", links.scholar],
-    ["LinkedIn", links.linkedin]
+    ["cv", "CV", links.cv],
+    ["orcid", "ORCID", links.orcid],
+    ["scholar", "Google Scholar", links.scholar],
+    ["linkedin", "LinkedIn", links.linkedin]
   ];
 
-  defs.forEach(([label, href]) => {
+  defs.forEach(([key, label, href]) => {
     const normalized = normalizeLink(href);
     const node = document.createElement(normalized ? "a" : "span");
     node.className = normalized ? "ext-link" : "ext-link is-disabled";
-    node.textContent = label;
+    node.setAttribute("aria-label", label);
+    node.setAttribute("title", label);
+    node.innerHTML = `${linkIconSvg(key)}<span class="visually-hidden">${label}</span>`;
     if (normalized) {
       node.href = normalized;
       node.target = "_blank";
