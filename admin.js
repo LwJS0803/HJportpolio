@@ -6,6 +6,7 @@ const AUTH_KEY = "hj-admin-session";
 const SECTION_KEYS = ["news", "education", "publications", "conferenceProceedings", "honors"];
 
 let dataState = {};
+let activePanel = "overview";
 
 const sectionConfig = {
   news: [
@@ -124,6 +125,33 @@ function randomId(prefix) {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
 }
 
+function parseYear(value) {
+  const matched = String(value || "").match(/\d{4}/);
+  return matched ? Number(matched[0]) : 0;
+}
+
+function computeLatestYear() {
+  const years = [];
+  [
+    ...(dataState.publications || []).map((v) => v.year),
+    ...(dataState.conferenceProceedings || []).map((v) => v.year),
+    ...(dataState.honors || []).map((v) => v.year)
+  ].forEach((y) => {
+    const parsed = parseYear(y);
+    if (parsed > 0) years.push(parsed);
+  });
+
+  if (!years.length) return "-";
+  return String(Math.max(...years));
+}
+
+function updateKpis() {
+  const totalItems = SECTION_KEYS.reduce((acc, key) => acc + (Array.isArray(dataState[key]) ? dataState[key].length : 0), 0);
+  document.getElementById("kpiTotalItems").textContent = String(totalItems);
+  document.getElementById("kpiPublications").textContent = String((dataState.publications || []).length);
+  document.getElementById("kpiLatestYear").textContent = computeLatestYear();
+}
+
 async function loadFromServer() {
   const response = await fetch(DATA_URL, { cache: "no-cache" });
   if (!response.ok) throw new Error("failed to fetch");
@@ -152,7 +180,10 @@ function readProfileInputs() {
     name: document.getElementById("profileName").value.trim(),
     affiliation: document.getElementById("profileAffiliation").value.trim(),
     intro: document.getElementById("profileIntro").value.trim(),
-    areaOfInterest: areaRaw.split(",").map((v) => v.trim()).filter(Boolean),
+    areaOfInterest: areaRaw
+      .split(",")
+      .map((v) => v.trim())
+      .filter(Boolean),
     email: document.getElementById("profileEmail").value.trim(),
     photo: document.getElementById("profilePhoto").value.trim() || "assets/profile.JPG",
     links: {
@@ -186,7 +217,6 @@ function createRow(section, item, index) {
     input.placeholder = field.placeholder || "";
     input.required = Boolean(field.required);
     input.value = item[field.key] || "";
-
     if (field.type !== "textarea") input.type = "text";
 
     row.append(label, input);
@@ -216,9 +246,10 @@ function createRow(section, item, index) {
 function renderSection(section) {
   const root = editors[section];
   if (!root) return;
-  root.innerHTML = "";
 
+  root.innerHTML = "";
   const rows = dataState[section] || [];
+
   if (!rows.length) {
     const empty = document.createElement("p");
     empty.className = "fallback";
@@ -233,6 +264,7 @@ function renderSection(section) {
 function renderAll() {
   fillProfileInputs();
   SECTION_KEYS.forEach((section) => renderSection(section));
+  updateKpis();
 }
 
 function syncFromEditors() {
@@ -260,6 +292,8 @@ function syncFromEditors() {
 
     dataState[section] = next;
   });
+
+  updateKpis();
 }
 
 function saveToStorage() {
@@ -272,6 +306,7 @@ function addItem(section) {
   const item = { ...sectionDefault[section], id: randomId(section) };
   dataState[section] = [...(dataState[section] || []), item];
   renderSection(section);
+  updateKpis();
 }
 
 function moveItem(section, index, delta) {
@@ -294,6 +329,7 @@ function removeItem(section, index) {
 
   rows.splice(index, 1);
   renderSection(section);
+  updateKpis();
 }
 
 function exportJson() {
@@ -325,9 +361,28 @@ function importJson(file) {
   reader.readAsText(file);
 }
 
+function setActivePanel(panel) {
+  activePanel = panel;
+
+  document.querySelectorAll(".admin-nav-item[data-panel]").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.panel === panel);
+  });
+
+  document.querySelectorAll(".admin-panel").forEach((node) => {
+    node.classList.toggle("is-active", node.dataset.panelContent === panel);
+  });
+}
+
 function bindEvents() {
   document.body.addEventListener("click", (event) => {
     const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+
+    if (target.matches(".admin-nav-item[data-panel]")) {
+      setActivePanel(target.dataset.panel || "overview");
+      return;
+    }
+
     if (!(target instanceof HTMLButtonElement)) return;
 
     const action = target.dataset.action;
@@ -417,6 +472,7 @@ async function hydrateState() {
       if (isValidPayload(parsed)) {
         dataState = ensureShape(parsed);
         renderAll();
+        setActivePanel(activePanel);
         return;
       }
     } catch {
@@ -433,6 +489,7 @@ async function hydrateState() {
   }
 
   renderAll();
+  setActivePanel(activePanel);
 }
 
 bindEvents();

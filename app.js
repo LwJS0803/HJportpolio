@@ -153,6 +153,9 @@ function createCardImage(image, altText) {
   img.src = raw;
   img.alt = altText;
   img.loading = "lazy";
+  img.onerror = () => {
+    wrapper.remove();
+  };
   wrapper.appendChild(img);
   return wrapper;
 }
@@ -181,13 +184,11 @@ function bindMenu() {
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Node)) return;
-    if (!nav.contains(event.target) && !toggle.contains(event.target)) {
-      closeMenu();
-    }
+    if (!nav.contains(event.target) && !toggle.contains(event.target)) closeMenu();
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 860) closeMenu();
+    if (window.innerWidth > 768) closeMenu();
   });
 }
 
@@ -215,12 +216,13 @@ function renderProfile(profile) {
     areas.forEach((area) => areaRoot.appendChild(make("span", "chip", safeText(area))));
   }
 
+  const links = profile.links || {};
   const linkRoot = clearAndGet("profile-links");
   const defs = [
-    ["CV", profile.links.cv],
-    ["ORCID", profile.links.orcid],
-    ["LinkedIn", profile.links.linkedin],
-    ["Google Scholar", profile.links.scholar]
+    ["CV", links.cv],
+    ["ORCID", links.orcid],
+    ["LinkedIn", links.linkedin],
+    ["Google Scholar", links.scholar]
   ];
 
   defs.forEach(([label, href]) => {
@@ -292,9 +294,7 @@ function renderPublications(items) {
       const fallbackCitation = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(item.details, "")]
         .filter(Boolean)
         .join("\n");
-      if (fallbackCitation) {
-        card.appendChild(make("p", "citation", fallbackCitation));
-      }
+      if (fallbackCitation) card.appendChild(make("p", "citation", fallbackCitation));
     }
 
     const link = normalizeLink(item.link);
@@ -332,9 +332,7 @@ function renderConferences(items) {
       const fallbackCitation = [safeText(item.authors, ""), safeText(item.venue, ""), safeText(item.notes, "")]
         .filter(Boolean)
         .join("\n");
-      if (fallbackCitation) {
-        card.appendChild(make("p", "citation", fallbackCitation));
-      }
+      if (fallbackCitation) card.appendChild(make("p", "citation", fallbackCitation));
     }
 
     const link = normalizeLink(item.link);
@@ -383,9 +381,7 @@ async function render() {
 }
 
 window.addEventListener("storage", (event) => {
-  if (event.key === STORAGE_KEY) {
-    render();
-  }
+  if (event.key === STORAGE_KEY) render();
 });
 
 render();
