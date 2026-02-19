@@ -346,6 +346,13 @@ body.portfolio-page {
   gap: 1rem;
 }
 
+.news-entry {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.85rem 0;
+}
+
 .news-date {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
@@ -380,7 +387,11 @@ body.portfolio-page {
 }
 
 .edu-card {
-  padding: 1rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  border-left: 5px solid #b49a8a;
+  padding: 0.15rem 0 0.15rem 0.95rem;
 }
 
 .edu-degree {
@@ -465,8 +476,8 @@ body.portfolio-page {
 }
 
 .research-head {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: flex-start;
   gap: 0.78rem;
 }
@@ -477,6 +488,7 @@ body.portfolio-page {
   gap: 0.4rem;
   flex-wrap: wrap;
   justify-content: flex-end;
+  justify-self: end;
 }
 
 .research-head h3 {
@@ -484,6 +496,8 @@ body.portfolio-page {
   line-height: 1.43;
   color: #2d2824;
   min-width: 0;
+  width: 100%;
+  padding-right: 0.2rem;
   overflow-wrap: anywhere;
 }
 
@@ -576,9 +590,9 @@ body.portfolio-page {
 }
 
 .honor-head {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 0.6rem;
 }
 
@@ -590,6 +604,10 @@ body.portfolio-page {
 .honor-title {
   font-size: 1rem;
   color: #2f2a26;
+  min-width: 0;
+  width: 100%;
+  padding-right: 0.2rem;
+  overflow-wrap: anywhere;
 }
 
 .honor-org,
@@ -1083,6 +1101,7 @@ a:focus-visible {
     min-height: 24px;
     padding: 0 0.5rem;
     font-size: 0.66rem;
+    white-space: nowrap;
   }
 
   .hero-photo {
@@ -1104,6 +1123,7 @@ a:focus-visible {
   .news-entry {
     grid-template-columns: 1fr;
     gap: 0.42rem;
+    padding: 0.72rem 0;
   }
 
   .news-date {
@@ -1115,6 +1135,11 @@ a:focus-visible {
   .kpi-grid,
   .field-grid {
     grid-template-columns: 1fr;
+  }
+
+  .edu-card {
+    border-left-width: 4px;
+    padding-left: 0.8rem;
   }
 
   .honor-card {
