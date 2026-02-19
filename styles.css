@@ -422,24 +422,30 @@ body.portfolio-page {
   grid-template-columns: 1fr;
 }
 
-.publication-card {
-  grid-template-columns: 132px minmax(0, 1fr);
+.publication-card,
+.conference-card {
+  grid-template-columns: 176px minmax(0, 1fr);
   align-items: start;
 }
 
-.publication-card .research-thumb {
-  width: 132px;
-  height: 96px;
+.publication-card .research-thumb,
+.conference-card .research-thumb {
+  width: 176px;
+  height: 124px;
   margin: 0;
 }
 
-.publication-card .research-thumb img {
+.publication-card .research-thumb img,
+.conference-card .research-thumb img {
   width: 100%;
   height: 100%;
-  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  background: #f4f1ee;
 }
 
-.publication-card.no-thumb {
+.publication-card.no-thumb,
+.conference-card.no-thumb {
   grid-template-columns: 1fr;
 }
 
@@ -1008,17 +1014,20 @@ a:focus-visible {
     gap: 1rem;
   }
 
-  .publication-card {
-    grid-template-columns: 96px minmax(0, 1fr);
+  .publication-card,
+  .conference-card {
+    grid-template-columns: 120px minmax(0, 1fr);
     gap: 0.75rem;
   }
 
-  .publication-card .research-thumb {
-    width: 96px;
-    height: 72px;
+  .publication-card .research-thumb,
+  .conference-card .research-thumb {
+    width: 120px;
+    height: 84px;
   }
 
-  .publication-card.no-thumb {
+  .publication-card.no-thumb,
+  .conference-card.no-thumb {
     grid-template-columns: 1fr;
   }
 

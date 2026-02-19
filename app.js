@@ -329,7 +329,8 @@ function renderConferences(items) {
     (item) => formatConferenceDate(item.month, item.year),
     (item) => item.notes,
     (item) => item.award,
-    "No conference entries yet."
+    "No conference entries yet.",
+    "conference-card"
   );
 }
 
