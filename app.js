@@ -8,7 +8,7 @@ function getFallbackData() {
     profile: {
       name: "Hyuckjin Jang",
       affiliation: "Graduate School of Culture Technology, KAIST",
-      intro: "Human-Computer Interaction researcher focused on Extended Reality, sensory substitution, assistive technology, media psychology, and cognitive neuroscience.",
+      intro: "I explore how interactive technologies can make perception, communication, and collaboration more human-centered. My work spans XR, haptics, and cognitive science to design experiences that are both socially meaningful and practically accessible.",
       areaOfInterest: ["Human-Computer Interaction", "Extended Reality"],
       email: "hyuckjin.jang@kaist.ac.kr",
       photo: "assets/profile.JPG",
