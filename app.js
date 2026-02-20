@@ -13,7 +13,7 @@ function getFallbackData() {
       email: "hyuckjin.jang@kaist.ac.kr",
       photo: "assets/profile.JPG",
       links: {
-        cv: "CV_Hyuckjin%20Jang%20(11).pdf",
+        cv: "https://drive.google.com/file/d/1qP0y-kgTGK4p5TDXQrk1iT7EKN2oqcOM/view?usp=drive_link",
         orcid: "",
         linkedin: "",
         scholar: ""
