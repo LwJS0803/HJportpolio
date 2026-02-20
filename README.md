@@ -1,10 +1,10 @@
-# HJportpolio
+# HJportfolio
 
 Research portfolio website (static HTML/CSS/JS) for GitHub Pages.
 
 ## Live URL
 
-- https://lwjs0803.github.io/HJportpolio/
+- https://lwjs0803.github.io/HJportfolio/
 
 ## Tech Stack
 
