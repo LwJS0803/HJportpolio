@@ -1131,6 +1131,27 @@ a:focus-visible {
     margin-inline: auto;
   }
 
+  .hero-copy {
+    text-align: center;
+  }
+
+  .area-list {
+    justify-content: center;
+  }
+
+  .hero-contact {
+    justify-content: center;
+  }
+
+  .hero-links-scroll {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-links {
+    margin-inline: auto;
+  }
+
   .hero-links {
     flex-wrap: nowrap;
     width: max-content;
