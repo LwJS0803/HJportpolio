@@ -348,6 +348,28 @@ body.portfolio-page {
   gap: 0.82rem;
 }
 
+.news-scroll {
+  max-height: 22.25rem;
+  overflow-y: auto;
+  padding-right: 0.55rem;
+  scrollbar-width: thin;
+  scrollbar-color: #c6b9af transparent;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+}
+
+.news-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.news-scroll::-webkit-scrollbar-thumb {
+  background: #c6b9af;
+  border-radius: 999px;
+}
+
+.news-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .news-entry,
 .research-card,
 .edu-card,
@@ -1165,6 +1187,12 @@ a:focus-visible {
     grid-template-columns: 1fr;
     gap: 0.42rem;
     padding: 0.72rem 0;
+  }
+
+  .news-scroll {
+    max-height: 24rem;
+    padding-right: 0.2rem;
+    mask-image: none;
   }
 
   .news-date {
