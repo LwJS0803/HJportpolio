@@ -354,7 +354,6 @@ body.portfolio-page {
   padding-right: 0.55rem;
   scrollbar-width: thin;
   scrollbar-color: #c6b9af transparent;
-  mask-image: linear-gradient(to bottom, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
 }
 
 .news-scroll::-webkit-scrollbar {
