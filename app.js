@@ -101,11 +101,62 @@ function sortConference(items) {
   });
 }
 
+function parseIsoDateString(value) {
+  const raw = String(value || "").trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(raw)) return null;
+  const parsed = new Date(`${raw}T00:00:00`);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function getNewsDateParts(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return null;
+
+  const rangeMatch = raw.match(/^(\d{4}-\d{2}-\d{2})\s*(?:\/|\s+to\s+|\s+-\s+)\s*(\d{4}-\d{2}-\d{2})$/i);
+  if (rangeMatch) {
+    const start = parseIsoDateString(rangeMatch[1]);
+    const end = parseIsoDateString(rangeMatch[2]);
+    if (start && end) return { start, end };
+  }
+
+  const single = parseIsoDateString(raw);
+  if (single) return { start: single, end: null };
+
+  return null;
+}
+
 function formatNewsDate(value) {
-  if (!value) return "Date TBD";
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return value;
-  return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric" }).format(parsed);
+  const raw = String(value || "").trim();
+  if (!raw) return "Date TBD";
+
+  const parts = getNewsDateParts(raw);
+  if (!parts) return raw;
+
+  const singleFormat = new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric" });
+  if (!parts.end) return singleFormat.format(parts.start);
+
+  const start = parts.start;
+  const end = parts.end;
+  const sameYear = start.getFullYear() === end.getFullYear();
+  const sameMonth = sameYear && start.getMonth() === end.getMonth();
+  const shortMonth = new Intl.DateTimeFormat("en-US", { month: "short" });
+
+  if (sameMonth) {
+    return `${shortMonth.format(start)} ${start.getDate()}-${end.getDate()}, ${start.getFullYear()}`;
+  }
+
+  if (sameYear) {
+    return `${shortMonth.format(start)} ${start.getDate()} - ${shortMonth.format(end)} ${end.getDate()}, ${start.getFullYear()}`;
+  }
+
+  return `${singleFormat.format(start)} - ${singleFormat.format(end)}`;
+}
+
+function getNewsDateTime(value) {
+  const parts = getNewsDateParts(value);
+  if (!parts) return "";
+  if (!parts.end) return parts.start.toISOString().slice(0, 10);
+  return `${parts.start.toISOString().slice(0, 10)}/${parts.end.toISOString().slice(0, 10)}`;
 }
 
 function formatConferenceDate(month, year) {
@@ -262,7 +313,8 @@ function renderNews(items) {
   rows.forEach((item) => {
     const card = make("article", "news-entry");
     const time = make("time", "news-date", formatNewsDate(item.date));
-    if (item.date) time.dateTime = item.date;
+    const dateTime = getNewsDateTime(item.date);
+    if (dateTime) time.dateTime = dateTime;
 
     const body = make("div", "news-body");
     body.appendChild(make("h3", "", safeText(item.title)));
