@@ -83,8 +83,26 @@ function sortByYearDesc(items, key) {
   return [...items].sort((a, b) => parseYear(b[key]) - parseYear(a[key]));
 }
 
+function newsSequence(id) {
+  const matched = String(id || "").trim().match(/^n-(\d+)$/i);
+  return matched ? Number(matched[1]) : null;
+}
+
 function sortNews(items) {
-  return [...items].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  return [...items].sort((a, b) => {
+    const aSequence = newsSequence(a.id);
+    const bSequence = newsSequence(b.id);
+
+    if (aSequence !== null && bSequence !== null && aSequence !== bSequence) {
+      return bSequence - aSequence;
+    }
+    if (aSequence !== null && bSequence === null) return -1;
+    if (aSequence === null && bSequence !== null) return 1;
+
+    const aDate = getNewsDateParts(a.date)?.start.getTime() || 0;
+    const bDate = getNewsDateParts(b.date)?.start.getTime() || 0;
+    return bDate - aDate;
+  });
 }
 
 function monthOrder(month) {
