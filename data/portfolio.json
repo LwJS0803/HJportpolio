@@ -31,7 +31,7 @@
       "id": "n-2",
       "date": "2026-01-23",
       "title": "Outstanding Presentation Award in KCBP'26",
-      "body": "Awarded the Outstanding Presentation Award at Korean Cognitive & Biological Psychology Conference 2026"
+      "body": "Won the Outstanding Presentation Award at Korean Cognitive & Biological Psychology Conference 2026"
     },
     {
       "id": "n-3",
@@ -43,13 +43,13 @@
       "id": "n-4",
       "date": "2026-03-20 - 2026-03-25",
       "title": "Attending IEEE VR 2026",
-      "body": "presented my PhD research in the Doctoral Consortium session and serve as a student volunteer at IEEE VR 2026 (March 21 - 25) in Daegu."
+      "body": "Presented my PhD research in the Doctoral Consortium session and serve as a student volunteer at IEEE VR 2026 (March 21 - 25) in Daegu."
     },
     {
       "id": "n-5",
       "date": "2026-04-13 - 2026-04-17",
       "title": "Attending CHI'26",
-      "body": "presented our full paper 'Feel the Sync' at CHI'26 (April 13 - 17) in Barcelona, Spain."
+      "body": "Presented our full paper 'Feel the Sync' at CHI'26 (April 13 - 17) in Barcelona, Spain."
     },
     {
       "id": "n-6",
@@ -61,7 +61,13 @@
       "id": "n-7",
       "date": "2026-08-03 - 2026-08-05",
       "title": "Attending APMAR2026",
-      "body": "will introduce my ongoing research at APMAR2026 (August 3 - 5) in Taipei, Taiwan."
+      "body": "Presented my ongoing research at APMAR2026 (August 3 - 5) in Taipei, Taiwan."
+    },
+    {
+      "id": "n-8",
+      "date": "2026-08-05",
+      "title": "Best Presentation Award in APMAR'26",
+      "body": "Won the Best Presentation Award at the 18th Asia-Pacific Workshop on Mixed and Augmented Reality (APMAR'26)."
     }
   ],
   "education": [
@@ -147,6 +153,18 @@
     {
       "id": "c-1",
       "year": "2026",
+      "month": "Aug",
+      "title": "Beyond Collision: Haptic Pattern Relationships and Intergroup Perception in Virtual Crowds",
+      "authors": "Jang, H., and Lee, J.",
+      "venue": "the Asia-Pacific Workshop on Mixed and Augmented Reality (APMAR 2026), Taipei, Taiwan",
+      "notes": "",
+      "link": "",
+      "image": "",
+      "award": "Best Presentation Award"
+    },
+    {
+      "id": "c-2",
+      "year": "2026",
       "month": "Mar",
       "title": "[DC] Beyond Visual Dominance: Haptics as Social Cues for Enhanced Multi-User Experiences in VR",
       "authors": "Jang, H.",
@@ -157,7 +175,7 @@
       "award": ""
     },
     {
-      "id": "c-2",
+      "id": "c-3",
       "year": "2026",
       "month": "Jan",
       "title": "Exploring the Social Potential of Haptic Cues for Modulating Users' Group Perception in Virtual Crowd Contexts",
@@ -169,7 +187,7 @@
       "award": "Outstanding Presentation Award"
     },
     {
-      "id": "c-3",
+      "id": "c-4",
       "year": "2026",
       "month": "Jan",
       "title": "Modern Times: Shared Haptic Feedback for Enhancing Collaborative Experience and Inducing Interpersonal Synchrony in Short-Cycle Repetitive Remote Collaboration",
@@ -180,7 +198,7 @@
       "image": ""
     },
     {
-      "id": "c-4",
+      "id": "c-5",
       "year": "2025",
       "month": "Apr",
       "title": "The Preliminary Exploration of Sharing Haptic Feedback for Connecting Remote Users in XR",
@@ -191,7 +209,7 @@
       "image": ""
     },
     {
-      "id": "c-5",
+      "id": "c-6",
       "year": "2025",
       "month": "Feb",
       "title": "Haptic Pattern Similarity Modulates People's Social Perceptions and Interpersonal Distance in Virtual Reality",
@@ -202,7 +220,7 @@
       "image": ""
     },
     {
-      "id": "c-6",
+      "id": "c-7",
       "year": "2023",
       "month": "Oct",
       "title": "Exploring Factors of VR-based Wheelchair Simulation for Reducing Implicit Bias",
@@ -213,7 +231,7 @@
       "image": "assets/prePWPD.png"
     },
     {
-      "id": "c-7",
+      "id": "c-8",
       "year": "2023",
       "month": "Feb",
       "title": "Modulation of Implicit Bias toward People with Physical Disabilities by Wheelchair Experience in Virtual Reality",
@@ -224,7 +242,7 @@
       "image": ""
     },
     {
-      "id": "c-8",
+      "id": "c-9",
       "year": "2022",
       "month": "Aug",
       "title": "Sense of Embodiment Inducement for People with Reduced Lower-body Mobility and Sensations with Partial-Visuomotor Stimulation",
@@ -235,7 +253,7 @@
       "image": "assets/SoE.png"
     },
     {
-      "id": "c-9",
+      "id": "c-10",
       "year": "2022",
       "month": "Oct",
       "title": "Bring Store in My Room: AR Store Authoring System for Spatial Experience in Mobile Shopping",
@@ -246,7 +264,7 @@
       "image": "assets/bringStore.png"
     },
     {
-      "id": "c-10",
+      "id": "c-11",
       "year": "2021",
       "month": "Oct",
       "title": "Designing a Multi-Modal Communication System for the Deaf and Hard-of-Hearing Users",
